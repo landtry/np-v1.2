@@ -4,9 +4,9 @@ import { trpc } from "../utils/trpc";
 import DashboardHomeCardLoader from "./DashboardHomeCardLoader";
 
 function DashboardHome() {
-  // const { status, data } = trpc.useQuery(["auth.getSession"]);
-  // const users = trpc.useQuery(["example.getAllUsers"]);
-  // console.log(users.data);
+  const { status, data } = trpc.useQuery(["auth.getSession"]);
+  const users = trpc.useQuery(["example.getAllUsers"]);
+  console.log(users.data);
   // const data = null;
 
   const entities = [
@@ -36,27 +36,27 @@ function DashboardHome() {
     },
   ];
 
-  // if (!data) {
-  //   return (
-  //     <>
-  //       <div className="h-18"></div>
-  //       <div className="h-8"></div>
-  //       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-  //         <div className="max-w-4.5xl  mx-auto h-fit flex flex-col">
-  //           <div className="h-16"></div>
-  //           <ul
-  //             role="list"
-  //             className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-  //             {entities.map((entity, index) => (
-  //               <DashboardHomeCardLoader key={index} />
-  //             ))}
-  //           </ul>
-  //         </div>
-  //       </div>
-  //       <div className="h-8"></div>
-  //     </>
-  //   );
-  // }
+  if (!data) {
+    return (
+      <>
+        <div className="h-18"></div>
+        <div className="h-8"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          <div className="max-w-4.5xl  mx-auto h-fit flex flex-col">
+            <div className="h-16"></div>
+            <ul
+              role="list"
+              className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              {entities.map((entity, index) => (
+                <DashboardHomeCardLoader key={index} />
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="h-8"></div>
+      </>
+    );
+  }
 
   return (
     <>

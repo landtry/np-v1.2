@@ -22,13 +22,13 @@ function classNames(...classes: Array<string>) {
 }
 
 export default function Example() {
-  // const { status, data } = trpc.useQuery(["auth.getSession"]);
+  const { status, data } = trpc.useQuery(["auth.getSession"]);
 
   // const data = null;
 
-  // if (!data) {
-  //   return <NavLoader />;
-  // }
+  if (!data) {
+    return <NavLoader />;
+  }
 
   return (
     <Disclosure
@@ -107,9 +107,9 @@ export default function Example() {
                     <div>
                       <Menu.Button className="bg-white flex items-center text-sm rounded-full h-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-custom-blue">
                         <span className="sr-only">Open user menu</span>
-                        <Avatar image={"" ?? ""} />
+                        <Avatar image={data?.user?.image ?? ""} />
                         <span className=" ml-3 text-base font-bold">
-                          {"" ?? ""}
+                          {data?.user?.name ?? ""}
                         </span>
                         <DownArrow />
                       </Menu.Button>
@@ -180,13 +180,15 @@ export default function Example() {
             <div className="pt-4 pb-3 border-t border-custom-slate-300">
               <div className="flex items-center px-5 sm:px-6">
                 <div className="flex-shrink-0 flex items-center">
-                  <Avatar image={"" ?? ""} />
+                  <Avatar image={data?.user?.image ?? ""} />
                 </div>
                 <div className="ml-3">
                   <div className="text-base font-medium text-slate-800">
-                    {""}
+                    {data?.user?.name}
                   </div>
-                  <div className="text-sm font-medium text-slate-800">{""}</div>
+                  <div className="text-sm font-medium text-slate-800">
+                    {data?.user?.email}
+                  </div>
                 </div>
                 <button
                   type="button"

@@ -7,12 +7,12 @@ import Router from "next/router";
 import DashboardHome from "../components/DashboardHome";
 
 const Home: NextPage = () => {
-  // const { status, data } = useSession({
-  //   required: true,
-  //   onUnauthenticated() {
-  //     Router.push("/login");
-  //   },
-  // });
+  const { status, data } = useSession({
+    required: true,
+    onUnauthenticated() {
+      Router.push("/login");
+    },
+  });
 
   return (
     <>
