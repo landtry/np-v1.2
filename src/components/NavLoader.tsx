@@ -1,25 +1,4 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import Avatar from "../icons/Avatar";
-import { useSession } from "next-auth/react";
-import Logo from "../icons/Logo";
-import MenuArrow from "../icons/MenuArrow";
-import DownArrow from "../icons/DownArrow";
-
-const navigation = [{ name: "Dashboard", href: "#", current: true }];
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
-];
-
-function classNames(...classes: Array<string>) {
-  return classes.filter(Boolean).join(" ");
-}
-
-export default function Example() {
+export default function NavLoader() {
   return (
     <div className="bg-custom-slate-100 fixed top-0 w-screen border-b border-b-custom-slate-300">
       <div className="max-w-screen mx-auto px-4 sm:px-6 lg:px-6">

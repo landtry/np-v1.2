@@ -8,6 +8,7 @@ import Logo from "../icons/Logo";
 import MenuArrow from "../icons/MenuArrow";
 import DownArrow from "../icons/DownArrow";
 import NavLoader from "./NavLoader";
+import { trpc } from "../utils/trpc";
 
 const navigation = [{ name: "Dashboard", href: "#", current: true }];
 const userNavigation = [
@@ -21,7 +22,8 @@ function classNames(...classes: Array<string>) {
 }
 
 export default function Example() {
-  const { status, data } = useSession();
+  const { status, data } = trpc.useQuery(["auth.getSession"]);
+
   // const data = null;
 
   if (!data) {
