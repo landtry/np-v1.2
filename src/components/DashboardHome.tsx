@@ -39,7 +39,6 @@ function DashboardHome() {
   if (!data) {
     return (
       <>
-        <div className="h-18"></div>
         <div className="h-8"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="max-w-4.5xl  mx-auto h-fit flex flex-col">
@@ -60,7 +59,6 @@ function DashboardHome() {
 
   return (
     <>
-      <div className="h-18"></div>
       <div className="h-8"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="max-w-4.5xl  mx-auto h-fit flex flex-col">
