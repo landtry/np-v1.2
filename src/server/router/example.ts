@@ -14,8 +14,8 @@ export const exampleRouter = createRouter()
       };
     },
   })
-  .query("getAll", {
+  .query("getAllUsers", {
     async resolve({ ctx }) {
-      return await ctx.prisma.example.findMany();
+      return await ctx.prisma.user.findMany();
     },
   });
