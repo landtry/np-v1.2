@@ -4,6 +4,7 @@ import Logo from "../icons/Logo";
 export default function Login() {
   return (
     <>
+      <div className="h-10"></div>
       <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="mx-auto h-12 w-full flex justify-center">
@@ -14,7 +15,7 @@ export default function Login() {
           </h2>
         </div>
 
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
           <div className="bg-white py-8 px-4 shadow-custom sm:rounded-2xl sm:px-10 border-1 border-custom-slate-300">
             <form className="space-y-6" action="#" method="POST">
               <div>

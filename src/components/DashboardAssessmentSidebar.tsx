@@ -109,7 +109,7 @@ export default function DashboardAssessmentSidebar(props: SidebarProps) {
                   <div className="mt-5 flex-1 h-0 overflow-y-auto">
                     <nav className="px-2 space-y-1">
                       {navigation.map((item, index) => (
-                        <div key={index} disabled={item.disabled}>
+                        <div key={index}>
                           <ActiveLink
                             key={item.name}
                             href={item.href}
@@ -156,7 +156,11 @@ export default function DashboardAssessmentSidebar(props: SidebarProps) {
                 className="flex-1 px-6 pt-3 bg-white space-y-3"
                 aria-label="Sidebar">
                 {navigation.map((item, index) => (
-                  <div key={index} disabled={item.disabled}>
+                  <div
+                    key={index}
+                    className={classNames(
+                      item.disabled ? "  pointer-events-none" : ""
+                    )}>
                     <ActiveLink
                       key={item.name}
                       href={item.href}
@@ -164,7 +168,7 @@ export default function DashboardAssessmentSidebar(props: SidebarProps) {
                       <a
                         className={classNames(
                           item.disabled
-                            ? " text-slate-300"
+                            ? " text-slate-300 pointer-events-none"
                             : "text-custom-slate-900 hover:bg-custom-slate-200",
                           "group flex items-center px-4 py-3 text-base font-bold rounded-full"
                         )}>

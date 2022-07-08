@@ -42,6 +42,7 @@ model Session {
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
+// User
 model User {
     id            String    @id @default(cuid())
     name          String?
@@ -61,6 +62,7 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
+// Entity
 model Entity {
     id                             String       @id @default(cuid())
     user_id                        String
@@ -125,15 +127,940 @@ model Sme {
     entity    Entity  @relation(fields: [entity_id], references: [id], onDelete: Cascade)
 }
 
+// Assessment
 model Assessment {
-    id               String  @id @default(cuid())
+    id               String      @id @default(cuid())
     entity_id        String
     name             String?
-    standard         String?
-    overall_progress Int?    @default(0)
-    overall_score    Int?    @default(0)
-    template         Json?
-    entity           Entity  @relation(fields: [entity_id], references: [id], onDelete: Cascade)
+    standard         String?     @default("iso_27001")
+    overall_progress Int?        @default(0)
+    overall_score    Int?        @default(0)
+    entity           Entity      @relation(fields: [entity_id], references: [id], onDelete: Cascade)
+    iso_27001        Iso_27001[]
+}
+
+// Templates
+model Iso_27001 {
+    id                                  String     @id @default(cuid())
+    assessment_id                       String
+    assessment                          Assessment @relation(fields: [assessment_id], references: [id], onDelete: Cascade)
+    name                                String?
+    standard                            String?    @default("iso_27001")
+    overall_progress                    Int?       @default(0)
+    overall_score                       Int?       @default(0)
+    updated                             DateTime?  @default(now())
+    a_5_1_1_progress                    Int?       @default(0)
+    a_5_1_1_score                       Int?       @default(0)
+    a_5_1_1_auditor_answer              String?
+    a_5_1_1_auditor_answer_description  String?
+    a_5_1_1_internal_comments           String?
+    a_5_1_1_notes_to_client             String?
+    a_5_1_1_sme                         String?
+    a_5_1_1_status                      String?
+    a_5_1_2_progress                    Int?       @default(0)
+    a_5_1_2_score                       Int?       @default(0)
+    a_5_1_2_auditor_answer              String?
+    a_5_1_2_auditor_answer_description  String?
+    a_5_1_2_internal_comments           String?
+    a_5_1_2_notes_to_client             String?
+    a_5_1_2_sme                         String?
+    a_5_1_2_status                      String?
+    a_6_1_1_progress                    Int?       @default(0)
+    a_6_1_1_score                       Int?       @default(0)
+    a_6_1_1_auditor_answer              String?
+    a_6_1_1_auditor_answer_description  String?
+    a_6_1_1_internal_comments           String?
+    a_6_1_1_notes_to_client             String?
+    a_6_1_1_sme                         String?
+    a_6_1_1_status                      String?
+    a_6_1_2_progress                    Int?       @default(0)
+    a_6_1_2_score                       Int?       @default(0)
+    a_6_1_2_auditor_answer              String?
+    a_6_1_2_auditor_answer_description  String?
+    a_6_1_2_internal_comments           String?
+    a_6_1_2_notes_to_client             String?
+    a_6_1_2_sme                         String?
+    a_6_1_2_status                      String?
+    a_6_1_3_progress                    Int?       @default(0)
+    a_6_1_3_score                       Int?       @default(0)
+    a_6_1_3_auditor_answer              String?
+    a_6_1_3_auditor_answer_description  String?
+    a_6_1_3_internal_comments           String?
+    a_6_1_3_notes_to_client             String?
+    a_6_1_3_sme                         String?
+    a_6_1_3_status                      String?
+    a_6_1_4_progress                    Int?       @default(0)
+    a_6_1_4_score                       Int?       @default(0)
+    a_6_1_4_auditor_answer              String?
+    a_6_1_4_auditor_answer_description  String?
+    a_6_1_4_internal_comments           String?
+    a_6_1_4_notes_to_client             String?
+    a_6_1_4_sme                         String?
+    a_6_1_4_status                      String?
+    a_6_1_5_progress                    Int?       @default(0)
+    a_6_1_5_score                       Int?       @default(0)
+    a_6_1_5_auditor_answer              String?
+    a_6_1_5_auditor_answer_description  String?
+    a_6_1_5_internal_comments           String?
+    a_6_1_5_notes_to_client             String?
+    a_6_1_5_sme                         String?
+    a_6_1_5_status                      String?
+    a_6_2_1_progress                    Int?       @default(0)
+    a_6_2_1_score                       Int?       @default(0)
+    a_6_2_1_auditor_answer              String?
+    a_6_2_1_auditor_answer_description  String?
+    a_6_2_1_internal_comments           String?
+    a_6_2_1_notes_to_client             String?
+    a_6_2_1_sme                         String?
+    a_6_2_1_status                      String?
+    a_6_2_2_progress                    Int?       @default(0)
+    a_6_2_2_score                       Int?       @default(0)
+    a_6_2_2_auditor_answer              String?
+    a_6_2_2_auditor_answer_description  String?
+    a_6_2_2_internal_comments           String?
+    a_6_2_2_notes_to_client             String?
+    a_6_2_2_sme                         String?
+    a_6_2_2_status                      String?
+    a_7_1_1_progress                    Int?       @default(0)
+    a_7_1_1_score                       Int?       @default(0)
+    a_7_1_1_auditor_answer              String?
+    a_7_1_1_auditor_answer_description  String?
+    a_7_1_1_internal_comments           String?
+    a_7_1_1_notes_to_client             String?
+    a_7_1_1_sme                         String?
+    a_7_1_1_status                      String?
+    a_7_1_2_progress                    Int?       @default(0)
+    a_7_1_2_score                       Int?       @default(0)
+    a_7_1_2_auditor_answer              String?
+    a_7_1_2_auditor_answer_description  String?
+    a_7_1_2_internal_comments           String?
+    a_7_1_2_notes_to_client             String?
+    a_7_1_2_sme                         String?
+    a_7_1_2_status                      String?
+    a_7_2_1_progress                    Int?       @default(0)
+    a_7_2_1_score                       Int?       @default(0)
+    a_7_2_1_auditor_answer              String?
+    a_7_2_1_auditor_answer_description  String?
+    a_7_2_1_internal_comments           String?
+    a_7_2_1_notes_to_client             String?
+    a_7_2_1_sme                         String?
+    a_7_2_1_status                      String?
+    a_7_2_2_progress                    Int?       @default(0)
+    a_7_2_2_score                       Int?       @default(0)
+    a_7_2_2_auditor_answer              String?
+    a_7_2_2_auditor_answer_description  String?
+    a_7_2_2_internal_comments           String?
+    a_7_2_2_notes_to_client             String?
+    a_7_2_2_sme                         String?
+    a_7_2_2_status                      String?
+    a_7_2_3_progress                    Int?       @default(0)
+    a_7_2_3_score                       Int?       @default(0)
+    a_7_2_3_auditor_answer              String?
+    a_7_2_3_auditor_answer_description  String?
+    a_7_2_3_internal_comments           String?
+    a_7_2_3_notes_to_client             String?
+    a_7_2_3_sme                         String?
+    a_7_2_3_status                      String?
+    a_7_3_1_progress                    Int?       @default(0)
+    a_7_3_1_score                       Int?       @default(0)
+    a_7_3_1_auditor_answer              String?
+    a_7_3_1_auditor_answer_description  String?
+    a_7_3_1_internal_comments           String?
+    a_7_3_1_notes_to_client             String?
+    a_7_3_1_sme                         String?
+    a_7_3_1_status                      String?
+    a_8_1_1_progress                    Int?       @default(0)
+    a_8_1_1_score                       Int?       @default(0)
+    a_8_1_1_auditor_answer              String?
+    a_8_1_1_auditor_answer_description  String?
+    a_8_1_1_internal_comments           String?
+    a_8_1_1_notes_to_client             String?
+    a_8_1_1_sme                         String?
+    a_8_1_1_status                      String?
+    a_8_1_2_progress                    Int?       @default(0)
+    a_8_1_2_score                       Int?       @default(0)
+    a_8_1_2_auditor_answer              String?
+    a_8_1_2_auditor_answer_description  String?
+    a_8_1_2_internal_comments           String?
+    a_8_1_2_notes_to_client             String?
+    a_8_1_2_sme                         String?
+    a_8_1_2_status                      String?
+    a_8_1_3_progress                    Int?       @default(0)
+    a_8_1_3_score                       Int?       @default(0)
+    a_8_1_3_auditor_answer              String?
+    a_8_1_3_auditor_answer_description  String?
+    a_8_1_3_internal_comments           String?
+    a_8_1_3_notes_to_client             String?
+    a_8_1_3_sme                         String?
+    a_8_1_3_status                      String?
+    a_8_1_4_progress                    Int?       @default(0)
+    a_8_1_4_score                       Int?       @default(0)
+    a_8_1_4_auditor_answer              String?
+    a_8_1_4_auditor_answer_description  String?
+    a_8_1_4_internal_comments           String?
+    a_8_1_4_notes_to_client             String?
+    a_8_1_4_sme                         String?
+    a_8_1_4_status                      String?
+    a_8_2_1_progress                    Int?       @default(0)
+    a_8_2_1_score                       Int?       @default(0)
+    a_8_2_1_auditor_answer              String?
+    a_8_2_1_auditor_answer_description  String?
+    a_8_2_1_internal_comments           String?
+    a_8_2_1_notes_to_client             String?
+    a_8_2_1_sme                         String?
+    a_8_2_1_status                      String?
+    a_8_2_2_progress                    Int?       @default(0)
+    a_8_2_2_score                       Int?       @default(0)
+    a_8_2_2_auditor_answer              String?
+    a_8_2_2_auditor_answer_description  String?
+    a_8_2_2_internal_comments           String?
+    a_8_2_2_notes_to_client             String?
+    a_8_2_2_sme                         String?
+    a_8_2_2_status                      String?
+    a_8_2_3_progress                    Int?       @default(0)
+    a_8_2_3_score                       Int?       @default(0)
+    a_8_2_3_auditor_answer              String?
+    a_8_2_3_auditor_answer_description  String?
+    a_8_2_3_internal_comments           String?
+    a_8_2_3_notes_to_client             String?
+    a_8_2_3_sme                         String?
+    a_8_2_3_status                      String?
+    a_8_3_1_progress                    Int?       @default(0)
+    a_8_3_1_score                       Int?       @default(0)
+    a_8_3_1_auditor_answer              String?
+    a_8_3_1_auditor_answer_description  String?
+    a_8_3_1_internal_comments           String?
+    a_8_3_1_notes_to_client             String?
+    a_8_3_1_sme                         String?
+    a_8_3_1_status                      String?
+    a_8_3_2_progress                    Int?       @default(0)
+    a_8_3_2_score                       Int?       @default(0)
+    a_8_3_2_auditor_answer              String?
+    a_8_3_2_auditor_answer_description  String?
+    a_8_3_2_internal_comments           String?
+    a_8_3_2_notes_to_client             String?
+    a_8_3_2_sme                         String?
+    a_8_3_2_status                      String?
+    a_8_3_3_progress                    Int?       @default(0)
+    a_8_3_3_score                       Int?       @default(0)
+    a_8_3_3_auditor_answer              String?
+    a_8_3_3_auditor_answer_description  String?
+    a_8_3_3_internal_comments           String?
+    a_8_3_3_notes_to_client             String?
+    a_8_3_3_sme                         String?
+    a_8_3_3_status                      String?
+    a_9_1_1_progress                    Int?       @default(0)
+    a_9_1_1_score                       Int?       @default(0)
+    a_9_1_1_auditor_answer              String?
+    a_9_1_1_auditor_answer_description  String?
+    a_9_1_1_internal_comments           String?
+    a_9_1_1_notes_to_client             String?
+    a_9_1_1_sme                         String?
+    a_9_1_1_status                      String?
+    a_9_1_2_progress                    Int?       @default(0)
+    a_9_1_2_score                       Int?       @default(0)
+    a_9_1_2_auditor_answer              String?
+    a_9_1_2_auditor_answer_description  String?
+    a_9_1_2_internal_comments           String?
+    a_9_1_2_notes_to_client             String?
+    a_9_1_2_sme                         String?
+    a_9_1_2_status                      String?
+    a_9_2_1_progress                    Int?       @default(0)
+    a_9_2_1_score                       Int?       @default(0)
+    a_9_2_1_auditor_answer              String?
+    a_9_2_1_auditor_answer_description  String?
+    a_9_2_1_internal_comments           String?
+    a_9_2_1_notes_to_client             String?
+    a_9_2_1_sme                         String?
+    a_9_2_1_status                      String?
+    a_9_2_2_progress                    Int?       @default(0)
+    a_9_2_2_score                       Int?       @default(0)
+    a_9_2_2_auditor_answer              String?
+    a_9_2_2_auditor_answer_description  String?
+    a_9_2_2_internal_comments           String?
+    a_9_2_2_notes_to_client             String?
+    a_9_2_2_sme                         String?
+    a_9_2_2_status                      String?
+    a_9_2_3_progress                    Int?       @default(0)
+    a_9_2_3_score                       Int?       @default(0)
+    a_9_2_3_auditor_answer              String?
+    a_9_2_3_auditor_answer_description  String?
+    a_9_2_3_internal_comments           String?
+    a_9_2_3_notes_to_client             String?
+    a_9_2_3_sme                         String?
+    a_9_2_3_status                      String?
+    a_9_2_4_progress                    Int?       @default(0)
+    a_9_2_4_score                       Int?       @default(0)
+    a_9_2_4_auditor_answer              String?
+    a_9_2_4_auditor_answer_description  String?
+    a_9_2_4_internal_comments           String?
+    a_9_2_4_notes_to_client             String?
+    a_9_2_4_sme                         String?
+    a_9_2_4_status                      String?
+    a_9_2_5_progress                    Int?       @default(0)
+    a_9_2_5_score                       Int?       @default(0)
+    a_9_2_5_auditor_answer              String?
+    a_9_2_5_auditor_answer_description  String?
+    a_9_2_5_internal_comments           String?
+    a_9_2_5_notes_to_client             String?
+    a_9_2_5_sme                         String?
+    a_9_2_5_status                      String?
+    a_9_2_6_progress                    Int?       @default(0)
+    a_9_2_6_score                       Int?       @default(0)
+    a_9_2_6_auditor_answer              String?
+    a_9_2_6_auditor_answer_description  String?
+    a_9_2_6_internal_comments           String?
+    a_9_2_6_notes_to_client             String?
+    a_9_2_6_sme                         String?
+    a_9_2_6_status                      String?
+    a_9_3_1_progress                    Int?       @default(0)
+    a_9_3_1_score                       Int?       @default(0)
+    a_9_3_1_auditor_answer              String?
+    a_9_3_1_auditor_answer_description  String?
+    a_9_3_1_internal_comments           String?
+    a_9_3_1_notes_to_client             String?
+    a_9_3_1_sme                         String?
+    a_9_3_1_status                      String?
+    a_9_4_1_progress                    Int?       @default(0)
+    a_9_4_1_score                       Int?       @default(0)
+    a_9_4_1_auditor_answer              String?
+    a_9_4_1_auditor_answer_description  String?
+    a_9_4_1_internal_comments           String?
+    a_9_4_1_notes_to_client             String?
+    a_9_4_1_sme                         String?
+    a_9_4_1_status                      String?
+    a_9_4_2_progress                    Int?       @default(0)
+    a_9_4_2_score                       Int?       @default(0)
+    a_9_4_2_auditor_answer              String?
+    a_9_4_2_auditor_answer_description  String?
+    a_9_4_2_internal_comments           String?
+    a_9_4_2_notes_to_client             String?
+    a_9_4_2_sme                         String?
+    a_9_4_2_status                      String?
+    a_9_4_3_progress                    Int?       @default(0)
+    a_9_4_3_score                       Int?       @default(0)
+    a_9_4_3_auditor_answer              String?
+    a_9_4_3_auditor_answer_description  String?
+    a_9_4_3_internal_comments           String?
+    a_9_4_3_notes_to_client             String?
+    a_9_4_3_sme                         String?
+    a_9_4_3_status                      String?
+    a_9_4_4_progress                    Int?       @default(0)
+    a_9_4_4_score                       Int?       @default(0)
+    a_9_4_4_auditor_answer              String?
+    a_9_4_4_auditor_answer_description  String?
+    a_9_4_4_internal_comments           String?
+    a_9_4_4_notes_to_client             String?
+    a_9_4_4_sme                         String?
+    a_9_4_4_status                      String?
+    a_9_4_5_progress                    Int?       @default(0)
+    a_9_4_5_score                       Int?       @default(0)
+    a_9_4_5_auditor_answer              String?
+    a_9_4_5_auditor_answer_description  String?
+    a_9_4_5_internal_comments           String?
+    a_9_4_5_notes_to_client             String?
+    a_9_4_5_sme                         String?
+    a_9_4_5_status                      String?
+    a_10_1_1_progress                   Int?       @default(0)
+    a_10_1_1_score                      Int?       @default(0)
+    a_10_1_1_auditor_answer             String?
+    a_10_1_1_auditor_answer_description String?
+    a_10_1_1_internal_comments          String?
+    a_10_1_1_notes_to_client            String?
+    a_10_1_1_sme                        String?
+    a_10_1_1_status                     String?
+    a_10_1_2_progress                   Int?       @default(0)
+    a_10_1_2_score                      Int?       @default(0)
+    a_10_1_2_auditor_answer             String?
+    a_10_1_2_auditor_answer_description String?
+    a_10_1_2_internal_comments          String?
+    a_10_1_2_notes_to_client            String?
+    a_10_1_2_sme                        String?
+    a_10_1_2_status                     String?
+    a_11_1_1_progress                   Int?       @default(0)
+    a_11_1_1_score                      Int?       @default(0)
+    a_11_1_1_auditor_answer             String?
+    a_11_1_1_auditor_answer_description String?
+    a_11_1_1_internal_comments          String?
+    a_11_1_1_notes_to_client            String?
+    a_11_1_1_sme                        String?
+    a_11_1_1_status                     String?
+    a_11_1_2_progress                   Int?       @default(0)
+    a_11_1_2_score                      Int?       @default(0)
+    a_11_1_2_auditor_answer             String?
+    a_11_1_2_auditor_answer_description String?
+    a_11_1_2_internal_comments          String?
+    a_11_1_2_notes_to_client            String?
+    a_11_1_2_sme                        String?
+    a_11_1_2_status                     String?
+    a_11_1_3_progress                   Int?       @default(0)
+    a_11_1_3_score                      Int?       @default(0)
+    a_11_1_3_auditor_answer             String?
+    a_11_1_3_auditor_answer_description String?
+    a_11_1_3_internal_comments          String?
+    a_11_1_3_notes_to_client            String?
+    a_11_1_3_sme                        String?
+    a_11_1_3_status                     String?
+    a_11_1_4_progress                   Int?       @default(0)
+    a_11_1_4_score                      Int?       @default(0)
+    a_11_1_4_auditor_answer             String?
+    a_11_1_4_auditor_answer_description String?
+    a_11_1_4_internal_comments          String?
+    a_11_1_4_notes_to_client            String?
+    a_11_1_4_sme                        String?
+    a_11_1_4_status                     String?
+    a_11_1_5_progress                   Int?       @default(0)
+    a_11_1_5_score                      Int?       @default(0)
+    a_11_1_5_auditor_answer             String?
+    a_11_1_5_auditor_answer_description String?
+    a_11_1_5_internal_comments          String?
+    a_11_1_5_notes_to_client            String?
+    a_11_1_5_sme                        String?
+    a_11_1_5_status                     String?
+    a_11_1_6_progress                   Int?       @default(0)
+    a_11_1_6_score                      Int?       @default(0)
+    a_11_1_6_auditor_answer             String?
+    a_11_1_6_auditor_answer_description String?
+    a_11_1_6_internal_comments          String?
+    a_11_1_6_notes_to_client            String?
+    a_11_1_6_sme                        String?
+    a_11_1_6_status                     String?
+    a_11_2_1_progress                   Int?       @default(0)
+    a_11_2_1_score                      Int?       @default(0)
+    a_11_2_1_auditor_answer             String?
+    a_11_2_1_auditor_answer_description String?
+    a_11_2_1_internal_comments          String?
+    a_11_2_1_notes_to_client            String?
+    a_11_2_1_sme                        String?
+    a_11_2_1_status                     String?
+    a_11_2_2_progress                   Int?       @default(0)
+    a_11_2_2_score                      Int?       @default(0)
+    a_11_2_2_auditor_answer             String?
+    a_11_2_2_auditor_answer_description String?
+    a_11_2_2_internal_comments          String?
+    a_11_2_2_notes_to_client            String?
+    a_11_2_2_sme                        String?
+    a_11_2_2_status                     String?
+    a_11_2_3_progress                   Int?       @default(0)
+    a_11_2_3_score                      Int?       @default(0)
+    a_11_2_3_auditor_answer             String?
+    a_11_2_3_auditor_answer_description String?
+    a_11_2_3_internal_comments          String?
+    a_11_2_3_notes_to_client            String?
+    a_11_2_3_sme                        String?
+    a_11_2_3_status                     String?
+    a_11_2_4_progress                   Int?       @default(0)
+    a_11_2_4_score                      Int?       @default(0)
+    a_11_2_4_auditor_answer             String?
+    a_11_2_4_auditor_answer_description String?
+    a_11_2_4_internal_comments          String?
+    a_11_2_4_notes_to_client            String?
+    a_11_2_4_sme                        String?
+    a_11_2_4_status                     String?
+    a_11_2_5_progress                   Int?       @default(0)
+    a_11_2_5_score                      Int?       @default(0)
+    a_11_2_5_auditor_answer             String?
+    a_11_2_5_auditor_answer_description String?
+    a_11_2_5_internal_comments          String?
+    a_11_2_5_notes_to_client            String?
+    a_11_2_5_sme                        String?
+    a_11_2_5_status                     String?
+    a_11_2_6_progress                   Int?       @default(0)
+    a_11_2_6_score                      Int?       @default(0)
+    a_11_2_6_auditor_answer             String?
+    a_11_2_6_auditor_answer_description String?
+    a_11_2_6_internal_comments          String?
+    a_11_2_6_notes_to_client            String?
+    a_11_2_6_sme                        String?
+    a_11_2_6_status                     String?
+    a_11_2_7_progress                   Int?       @default(0)
+    a_11_2_7_score                      Int?       @default(0)
+    a_11_2_7_auditor_answer             String?
+    a_11_2_7_auditor_answer_description String?
+    a_11_2_7_internal_comments          String?
+    a_11_2_7_notes_to_client            String?
+    a_11_2_7_sme                        String?
+    a_11_2_7_status                     String?
+    a_11_2_8_progress                   Int?       @default(0)
+    a_11_2_8_score                      Int?       @default(0)
+    a_11_2_8_auditor_answer             String?
+    a_11_2_8_auditor_answer_description String?
+    a_11_2_8_internal_comments          String?
+    a_11_2_8_notes_to_client            String?
+    a_11_2_8_sme                        String?
+    a_11_2_8_status                     String?
+    a_11_2_9_progress                   Int?       @default(0)
+    a_11_2_9_score                      Int?       @default(0)
+    a_11_2_9_auditor_answer             String?
+    a_11_2_9_auditor_answer_description String?
+    a_11_2_9_internal_comments          String?
+    a_11_2_9_notes_to_client            String?
+    a_11_2_9_sme                        String?
+    a_11_2_9_status                     String?
+    a_12_1_1_progress                   Int?       @default(0)
+    a_12_1_1_score                      Int?       @default(0)
+    a_12_1_1_auditor_answer             String?
+    a_12_1_1_auditor_answer_description String?
+    a_12_1_1_internal_comments          String?
+    a_12_1_1_notes_to_client            String?
+    a_12_1_1_sme                        String?
+    a_12_1_1_status                     String?
+    a_12_1_2_progress                   Int?       @default(0)
+    a_12_1_2_score                      Int?       @default(0)
+    a_12_1_2_auditor_answer             String?
+    a_12_1_2_auditor_answer_description String?
+    a_12_1_2_internal_comments          String?
+    a_12_1_2_notes_to_client            String?
+    a_12_1_2_sme                        String?
+    a_12_1_2_status                     String?
+    a_12_1_3_progress                   Int?       @default(0)
+    a_12_1_3_score                      Int?       @default(0)
+    a_12_1_3_auditor_answer             String?
+    a_12_1_3_auditor_answer_description String?
+    a_12_1_3_internal_comments          String?
+    a_12_1_3_notes_to_client            String?
+    a_12_1_3_sme                        String?
+    a_12_1_3_status                     String?
+    a_12_1_4_progress                   Int?       @default(0)
+    a_12_1_4_score                      Int?       @default(0)
+    a_12_1_4_auditor_answer             String?
+    a_12_1_4_auditor_answer_description String?
+    a_12_1_4_internal_comments          String?
+    a_12_1_4_notes_to_client            String?
+    a_12_1_4_sme                        String?
+    a_12_1_4_status                     String?
+    a_12_2_1_progress                   Int?       @default(0)
+    a_12_2_1_score                      Int?       @default(0)
+    a_12_2_1_auditor_answer             String?
+    a_12_2_1_auditor_answer_description String?
+    a_12_2_1_internal_comments          String?
+    a_12_2_1_notes_to_client            String?
+    a_12_2_1_sme                        String?
+    a_12_2_1_status                     String?
+    a_12_3_1_progress                   Int?       @default(0)
+    a_12_3_1_score                      Int?       @default(0)
+    a_12_3_1_auditor_answer             String?
+    a_12_3_1_auditor_answer_description String?
+    a_12_3_1_internal_comments          String?
+    a_12_3_1_notes_to_client            String?
+    a_12_3_1_sme                        String?
+    a_12_3_1_status                     String?
+    a_12_4_1_progress                   Int?       @default(0)
+    a_12_4_1_score                      Int?       @default(0)
+    a_12_4_1_auditor_answer             String?
+    a_12_4_1_auditor_answer_description String?
+    a_12_4_1_internal_comments          String?
+    a_12_4_1_notes_to_client            String?
+    a_12_4_1_sme                        String?
+    a_12_4_1_status                     String?
+    a_12_4_2_progress                   Int?       @default(0)
+    a_12_4_2_score                      Int?       @default(0)
+    a_12_4_2_auditor_answer             String?
+    a_12_4_2_auditor_answer_description String?
+    a_12_4_2_internal_comments          String?
+    a_12_4_2_notes_to_client            String?
+    a_12_4_2_sme                        String?
+    a_12_4_2_status                     String?
+    a_12_4_3_progress                   Int?       @default(0)
+    a_12_4_3_score                      Int?       @default(0)
+    a_12_4_3_auditor_answer             String?
+    a_12_4_3_auditor_answer_description String?
+    a_12_4_3_internal_comments          String?
+    a_12_4_3_notes_to_client            String?
+    a_12_4_3_sme                        String?
+    a_12_4_3_status                     String?
+    a_12_4_4_progress                   Int?       @default(0)
+    a_12_4_4_score                      Int?       @default(0)
+    a_12_4_4_auditor_answer             String?
+    a_12_4_4_auditor_answer_description String?
+    a_12_4_4_internal_comments          String?
+    a_12_4_4_notes_to_client            String?
+    a_12_4_4_sme                        String?
+    a_12_4_4_status                     String?
+    a_12_5_1_progress                   Int?       @default(0)
+    a_12_5_1_score                      Int?       @default(0)
+    a_12_5_1_auditor_answer             String?
+    a_12_5_1_auditor_answer_description String?
+    a_12_5_1_internal_comments          String?
+    a_12_5_1_notes_to_client            String?
+    a_12_5_1_sme                        String?
+    a_12_5_1_status                     String?
+    a_12_6_1_progress                   Int?       @default(0)
+    a_12_6_1_score                      Int?       @default(0)
+    a_12_6_1_auditor_answer             String?
+    a_12_6_1_auditor_answer_description String?
+    a_12_6_1_internal_comments          String?
+    a_12_6_1_notes_to_client            String?
+    a_12_6_1_sme                        String?
+    a_12_6_1_status                     String?
+    a_12_6_2_progress                   Int?       @default(0)
+    a_12_6_2_score                      Int?       @default(0)
+    a_12_6_2_auditor_answer             String?
+    a_12_6_2_auditor_answer_description String?
+    a_12_6_2_internal_comments          String?
+    a_12_6_2_notes_to_client            String?
+    a_12_6_2_sme                        String?
+    a_12_6_2_status                     String?
+    a_12_7_1_progress                   Int?       @default(0)
+    a_12_7_1_score                      Int?       @default(0)
+    a_12_7_1_auditor_answer             String?
+    a_12_7_1_auditor_answer_description String?
+    a_12_7_1_internal_comments          String?
+    a_12_7_1_notes_to_client            String?
+    a_12_7_1_sme                        String?
+    a_12_7_1_status                     String?
+    a_13_1_1_progress                   Int?       @default(0)
+    a_13_1_1_score                      Int?       @default(0)
+    a_13_1_1_auditor_answer             String?
+    a_13_1_1_auditor_answer_description String?
+    a_13_1_1_internal_comments          String?
+    a_13_1_1_notes_to_client            String?
+    a_13_1_1_sme                        String?
+    a_13_1_1_status                     String?
+    a_13_1_2_progress                   Int?       @default(0)
+    a_13_1_2_score                      Int?       @default(0)
+    a_13_1_2_auditor_answer             String?
+    a_13_1_2_auditor_answer_description String?
+    a_13_1_2_internal_comments          String?
+    a_13_1_2_notes_to_client            String?
+    a_13_1_2_sme                        String?
+    a_13_1_2_status                     String?
+    a_13_1_3_progress                   Int?       @default(0)
+    a_13_1_3_score                      Int?       @default(0)
+    a_13_1_3_auditor_answer             String?
+    a_13_1_3_auditor_answer_description String?
+    a_13_1_3_internal_comments          String?
+    a_13_1_3_notes_to_client            String?
+    a_13_1_3_sme                        String?
+    a_13_1_3_status                     String?
+    a_13_2_1_progress                   Int?       @default(0)
+    a_13_2_1_score                      Int?       @default(0)
+    a_13_2_1_auditor_answer             String?
+    a_13_2_1_auditor_answer_description String?
+    a_13_2_1_internal_comments          String?
+    a_13_2_1_notes_to_client            String?
+    a_13_2_1_sme                        String?
+    a_13_2_1_status                     String?
+    a_13_2_2_progress                   Int?       @default(0)
+    a_13_2_2_score                      Int?       @default(0)
+    a_13_2_2_auditor_answer             String?
+    a_13_2_2_auditor_answer_description String?
+    a_13_2_2_internal_comments          String?
+    a_13_2_2_notes_to_client            String?
+    a_13_2_2_sme                        String?
+    a_13_2_2_status                     String?
+    a_13_2_3_progress                   Int?       @default(0)
+    a_13_2_3_score                      Int?       @default(0)
+    a_13_2_3_auditor_answer             String?
+    a_13_2_3_auditor_answer_description String?
+    a_13_2_3_internal_comments          String?
+    a_13_2_3_notes_to_client            String?
+    a_13_2_3_sme                        String?
+    a_13_2_3_status                     String?
+    a_13_2_4_progress                   Int?       @default(0)
+    a_13_2_4_score                      Int?       @default(0)
+    a_13_2_4_auditor_answer             String?
+    a_13_2_4_auditor_answer_description String?
+    a_13_2_4_internal_comments          String?
+    a_13_2_4_notes_to_client            String?
+    a_13_2_4_sme                        String?
+    a_13_2_4_status                     String?
+    a_14_1_1_progress                   Int?       @default(0)
+    a_14_1_1_score                      Int?       @default(0)
+    a_14_1_1_auditor_answer             String?
+    a_14_1_1_auditor_answer_description String?
+    a_14_1_1_internal_comments          String?
+    a_14_1_1_notes_to_client            String?
+    a_14_1_1_sme                        String?
+    a_14_1_1_status                     String?
+    a_14_1_2_progress                   Int?       @default(0)
+    a_14_1_2_score                      Int?       @default(0)
+    a_14_1_2_auditor_answer             String?
+    a_14_1_2_auditor_answer_description String?
+    a_14_1_2_internal_comments          String?
+    a_14_1_2_notes_to_client            String?
+    a_14_1_2_sme                        String?
+    a_14_1_2_status                     String?
+    a_14_1_3_progress                   Int?       @default(0)
+    a_14_1_3_score                      Int?       @default(0)
+    a_14_1_3_auditor_answer             String?
+    a_14_1_3_auditor_answer_description String?
+    a_14_1_3_internal_comments          String?
+    a_14_1_3_notes_to_client            String?
+    a_14_1_3_sme                        String?
+    a_14_1_3_status                     String?
+    a_14_2_1_progress                   Int?       @default(0)
+    a_14_2_1_score                      Int?       @default(0)
+    a_14_2_1_auditor_answer             String?
+    a_14_2_1_auditor_answer_description String?
+    a_14_2_1_internal_comments          String?
+    a_14_2_1_notes_to_client            String?
+    a_14_2_1_sme                        String?
+    a_14_2_1_status                     String?
+    a_14_2_2_progress                   Int?       @default(0)
+    a_14_2_2_score                      Int?       @default(0)
+    a_14_2_2_auditor_answer             String?
+    a_14_2_2_auditor_answer_description String?
+    a_14_2_2_internal_comments          String?
+    a_14_2_2_notes_to_client            String?
+    a_14_2_2_sme                        String?
+    a_14_2_2_status                     String?
+    a_14_2_3_progress                   Int?       @default(0)
+    a_14_2_3_score                      Int?       @default(0)
+    a_14_2_3_auditor_answer             String?
+    a_14_2_3_auditor_answer_description String?
+    a_14_2_3_internal_comments          String?
+    a_14_2_3_notes_to_client            String?
+    a_14_2_3_sme                        String?
+    a_14_2_3_status                     String?
+    a_14_2_4_progress                   Int?       @default(0)
+    a_14_2_4_score                      Int?       @default(0)
+    a_14_2_4_auditor_answer             String?
+    a_14_2_4_auditor_answer_description String?
+    a_14_2_4_internal_comments          String?
+    a_14_2_4_notes_to_client            String?
+    a_14_2_4_sme                        String?
+    a_14_2_4_status                     String?
+    a_14_2_5_progress                   Int?       @default(0)
+    a_14_2_5_score                      Int?       @default(0)
+    a_14_2_5_auditor_answer             String?
+    a_14_2_5_auditor_answer_description String?
+    a_14_2_5_internal_comments          String?
+    a_14_2_5_notes_to_client            String?
+    a_14_2_5_sme                        String?
+    a_14_2_5_status                     String?
+    a_14_2_6_progress                   Int?       @default(0)
+    a_14_2_6_score                      Int?       @default(0)
+    a_14_2_6_auditor_answer             String?
+    a_14_2_6_auditor_answer_description String?
+    a_14_2_6_internal_comments          String?
+    a_14_2_6_notes_to_client            String?
+    a_14_2_6_sme                        String?
+    a_14_2_6_status                     String?
+    a_14_2_7_progress                   Int?       @default(0)
+    a_14_2_7_score                      Int?       @default(0)
+    a_14_2_7_auditor_answer             String?
+    a_14_2_7_auditor_answer_description String?
+    a_14_2_7_internal_comments          String?
+    a_14_2_7_notes_to_client            String?
+    a_14_2_7_sme                        String?
+    a_14_2_7_status                     String?
+    a_14_2_8_progress                   Int?       @default(0)
+    a_14_2_8_score                      Int?       @default(0)
+    a_14_2_8_auditor_answer             String?
+    a_14_2_8_auditor_answer_description String?
+    a_14_2_8_internal_comments          String?
+    a_14_2_8_notes_to_client            String?
+    a_14_2_8_sme                        String?
+    a_14_2_8_status                     String?
+    a_14_2_9_progress                   Int?       @default(0)
+    a_14_2_9_score                      Int?       @default(0)
+    a_14_2_9_auditor_answer             String?
+    a_14_2_9_auditor_answer_description String?
+    a_14_2_9_internal_comments          String?
+    a_14_2_9_notes_to_client            String?
+    a_14_2_9_sme                        String?
+    a_14_2_9_status                     String?
+    a_14_3_1_progress                   Int?       @default(0)
+    a_14_3_1_score                      Int?       @default(0)
+    a_14_3_1_auditor_answer             String?
+    a_14_3_1_auditor_answer_description String?
+    a_14_3_1_internal_comments          String?
+    a_14_3_1_notes_to_client            String?
+    a_14_3_1_sme                        String?
+    a_14_3_1_status                     String?
+    a_15_1_1_progress                   Int?       @default(0)
+    a_15_1_1_score                      Int?       @default(0)
+    a_15_1_1_auditor_answer             String?
+    a_15_1_1_auditor_answer_description String?
+    a_15_1_1_internal_comments          String?
+    a_15_1_1_notes_to_client            String?
+    a_15_1_1_sme                        String?
+    a_15_1_1_status                     String?
+    a_15_1_2_progress                   Int?       @default(0)
+    a_15_1_2_score                      Int?       @default(0)
+    a_15_1_2_auditor_answer             String?
+    a_15_1_2_auditor_answer_description String?
+    a_15_1_2_internal_comments          String?
+    a_15_1_2_notes_to_client            String?
+    a_15_1_2_sme                        String?
+    a_15_1_2_status                     String?
+    a_15_1_3_progress                   Int?       @default(0)
+    a_15_1_3_score                      Int?       @default(0)
+    a_15_1_3_auditor_answer             String?
+    a_15_1_3_auditor_answer_description String?
+    a_15_1_3_internal_comments          String?
+    a_15_1_3_notes_to_client            String?
+    a_15_1_3_sme                        String?
+    a_15_1_3_status                     String?
+    a_15_2_1_progress                   Int?       @default(0)
+    a_15_2_1_score                      Int?       @default(0)
+    a_15_2_1_auditor_answer             String?
+    a_15_2_1_auditor_answer_description String?
+    a_15_2_1_internal_comments          String?
+    a_15_2_1_notes_to_client            String?
+    a_15_2_1_sme                        String?
+    a_15_2_1_status                     String?
+    a_15_2_2_progress                   Int?       @default(0)
+    a_15_2_2_score                      Int?       @default(0)
+    a_15_2_2_auditor_answer             String?
+    a_15_2_2_auditor_answer_description String?
+    a_15_2_2_internal_comments          String?
+    a_15_2_2_notes_to_client            String?
+    a_15_2_2_sme                        String?
+    a_15_2_2_status                     String?
+    a_16_1_1_progress                   Int?       @default(0)
+    a_16_1_1_score                      Int?       @default(0)
+    a_16_1_1_auditor_answer             String?
+    a_16_1_1_auditor_answer_description String?
+    a_16_1_1_internal_comments          String?
+    a_16_1_1_notes_to_client            String?
+    a_16_1_1_sme                        String?
+    a_16_1_1_status                     String?
+    a_16_1_2_progress                   Int?       @default(0)
+    a_16_1_2_score                      Int?       @default(0)
+    a_16_1_2_auditor_answer             String?
+    a_16_1_2_auditor_answer_description String?
+    a_16_1_2_internal_comments          String?
+    a_16_1_2_notes_to_client            String?
+    a_16_1_2_sme                        String?
+    a_16_1_2_status                     String?
+    a_16_1_3_progress                   Int?       @default(0)
+    a_16_1_3_score                      Int?       @default(0)
+    a_16_1_3_auditor_answer             String?
+    a_16_1_3_auditor_answer_description String?
+    a_16_1_3_internal_comments          String?
+    a_16_1_3_notes_to_client            String?
+    a_16_1_3_sme                        String?
+    a_16_1_3_status                     String?
+    a_16_1_4_progress                   Int?       @default(0)
+    a_16_1_4_score                      Int?       @default(0)
+    a_16_1_4_auditor_answer             String?
+    a_16_1_4_auditor_answer_description String?
+    a_16_1_4_internal_comments          String?
+    a_16_1_4_notes_to_client            String?
+    a_16_1_4_sme                        String?
+    a_16_1_4_status                     String?
+    a_16_1_5_progress                   Int?       @default(0)
+    a_16_1_5_score                      Int?       @default(0)
+    a_16_1_5_auditor_answer             String?
+    a_16_1_5_auditor_answer_description String?
+    a_16_1_5_internal_comments          String?
+    a_16_1_5_notes_to_client            String?
+    a_16_1_5_sme                        String?
+    a_16_1_5_status                     String?
+    a_16_1_6_progress                   Int?       @default(0)
+    a_16_1_6_score                      Int?       @default(0)
+    a_16_1_6_auditor_answer             String?
+    a_16_1_6_auditor_answer_description String?
+    a_16_1_6_internal_comments          String?
+    a_16_1_6_notes_to_client            String?
+    a_16_1_6_sme                        String?
+    a_16_1_6_status                     String?
+    a_16_1_7_progress                   Int?       @default(0)
+    a_16_1_7_score                      Int?       @default(0)
+    a_16_1_7_auditor_answer             String?
+    a_16_1_7_auditor_answer_description String?
+    a_16_1_7_internal_comments          String?
+    a_16_1_7_notes_to_client            String?
+    a_16_1_7_sme                        String?
+    a_16_1_7_status                     String?
+    a_17_1_1_progress                   Int?       @default(0)
+    a_17_1_1_score                      Int?       @default(0)
+    a_17_1_1_auditor_answer             String?
+    a_17_1_1_auditor_answer_description String?
+    a_17_1_1_internal_comments          String?
+    a_17_1_1_notes_to_client            String?
+    a_17_1_1_sme                        String?
+    a_17_1_1_status                     String?
+    a_17_1_2_progress                   Int?       @default(0)
+    a_17_1_2_score                      Int?       @default(0)
+    a_17_1_2_auditor_answer             String?
+    a_17_1_2_auditor_answer_description String?
+    a_17_1_2_internal_comments          String?
+    a_17_1_2_notes_to_client            String?
+    a_17_1_2_sme                        String?
+    a_17_1_2_status                     String?
+    a_17_1_3_progress                   Int?       @default(0)
+    a_17_1_3_score                      Int?       @default(0)
+    a_17_1_3_auditor_answer             String?
+    a_17_1_3_auditor_answer_description String?
+    a_17_1_3_internal_comments          String?
+    a_17_1_3_notes_to_client            String?
+    a_17_1_3_sme                        String?
+    a_17_1_3_status                     String?
+    a_17_2_1_progress                   Int?       @default(0)
+    a_17_2_1_score                      Int?       @default(0)
+    a_17_2_1_auditor_answer             String?
+    a_17_2_1_auditor_answer_description String?
+    a_17_2_1_internal_comments          String?
+    a_17_2_1_notes_to_client            String?
+    a_17_2_1_sme                        String?
+    a_17_2_1_status                     String?
+    a_18_1_1_progress                   Int?       @default(0)
+    a_18_1_1_score                      Int?       @default(0)
+    a_18_1_1_auditor_answer             String?
+    a_18_1_1_auditor_answer_description String?
+    a_18_1_1_internal_comments          String?
+    a_18_1_1_notes_to_client            String?
+    a_18_1_1_sme                        String?
+    a_18_1_1_status                     String?
+    a_18_1_2_progress                   Int?       @default(0)
+    a_18_1_2_score                      Int?       @default(0)
+    a_18_1_2_auditor_answer             String?
+    a_18_1_2_auditor_answer_description String?
+    a_18_1_2_internal_comments          String?
+    a_18_1_2_notes_to_client            String?
+    a_18_1_2_sme                        String?
+    a_18_1_2_status                     String?
+    a_18_1_3_progress                   Int?       @default(0)
+    a_18_1_3_score                      Int?       @default(0)
+    a_18_1_3_auditor_answer             String?
+    a_18_1_3_auditor_answer_description String?
+    a_18_1_3_internal_comments          String?
+    a_18_1_3_notes_to_client            String?
+    a_18_1_3_sme                        String?
+    a_18_1_3_status                     String?
+    a_18_1_4_progress                   Int?       @default(0)
+    a_18_1_4_score                      Int?       @default(0)
+    a_18_1_4_auditor_answer             String?
+    a_18_1_4_auditor_answer_description String?
+    a_18_1_4_internal_comments          String?
+    a_18_1_4_notes_to_client            String?
+    a_18_1_4_sme                        String?
+    a_18_1_4_status                     String?
+    a_18_1_5_progress                   Int?       @default(0)
+    a_18_1_5_score                      Int?       @default(0)
+    a_18_1_5_auditor_answer             String?
+    a_18_1_5_auditor_answer_description String?
+    a_18_1_5_internal_comments          String?
+    a_18_1_5_notes_to_client            String?
+    a_18_1_5_sme                        String?
+    a_18_1_5_status                     String?
+    a_18_2_1_progress                   Int?       @default(0)
+    a_18_2_1_score                      Int?       @default(0)
+    a_18_2_1_auditor_answer             String?
+    a_18_2_1_auditor_answer_description String?
+    a_18_2_1_internal_comments          String?
+    a_18_2_1_notes_to_client            String?
+    a_18_2_1_sme                        String?
+    a_18_2_1_status                     String?
+    a_18_2_2_progress                   Int?       @default(0)
+    a_18_2_2_score                      Int?       @default(0)
+    a_18_2_2_auditor_answer             String?
+    a_18_2_2_auditor_answer_description String?
+    a_18_2_2_internal_comments          String?
+    a_18_2_2_notes_to_client            String?
+    a_18_2_2_sme                        String?
+    a_18_2_2_status                     String?
+    a_18_2_3_progress                   Int?       @default(0)
+    a_18_2_3_score                      Int?       @default(0)
+    a_18_2_3_auditor_answer             String?
+    a_18_2_3_auditor_answer_description String?
+    a_18_2_3_internal_comments          String?
+    a_18_2_3_notes_to_client            String?
+    a_18_2_3_sme                        String?
+    a_18_2_3_status                     String?
 }
 
 model Changelog {

@@ -2,6 +2,7 @@ import React from "react";
 import DashboardHomeCard from "./DashboardHomeCard";
 import { trpc } from "../utils/trpc";
 import DashboardHomeCardLoader from "./DashboardHomeCardLoader";
+import DashboardHomeEmpty from "./DashboardHomeEmpty";
 import Link from "next/link";
 
 function DashboardHome() {
@@ -43,6 +44,7 @@ function DashboardHome() {
   if (!session.data || entities.status === "loading") {
     return (
       <>
+        <div className="h-18"></div>
         <div className="h-8"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="max-w-4.5xl  mx-auto h-fit flex flex-col">
@@ -61,8 +63,17 @@ function DashboardHome() {
     );
   }
 
+  if (entities?.data?.length === 0) {
+    return (
+      <div className="w-full h-screen flex justify-center items-center">
+        <DashboardHomeEmpty />
+      </div>
+    );
+  }
+
   return (
     <>
+      <div className="h-18"></div>
       <div className="h-8"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="max-w-4.5xl  mx-auto h-fit flex flex-col">
@@ -78,7 +89,7 @@ function DashboardHome() {
             {entities.data?.map((entity, index) => (
               <Link key={index} href={`/entity/${entity.id}`}>
                 <a>
-                  <DashboardHomeCard name={entity.name} />
+                  <DashboardHomeCard name={entity.name} overall_progress={0} />
                 </a>
               </Link>
             ))}

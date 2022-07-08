@@ -43,7 +43,6 @@ export const entityRouter = createRouter()
   .query("single-entity", {
     input: getSingleEntitySchema,
     resolve({ input, ctx }) {
-      console.log(input);
       return ctx.prisma.entity.findUnique({
         where: {
           id: input.entity_id,

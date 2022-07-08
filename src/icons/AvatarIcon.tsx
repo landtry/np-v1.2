@@ -21,7 +21,7 @@ const AvatarIcon = ({ image }: Props) => {
 
   return (
     <Image
-      className="inline-block h-12 w-12 rounded-full"
+      className="inline-block h-12 w-12 rounded-full grayscale"
       src={image}
       alt="Avatar"
       width={40}

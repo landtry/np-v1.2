@@ -14,7 +14,6 @@ const MyApp: AppType = ({
   return (
     <SessionProvider session={session}>
       <Nav />
-      <div className="h-18"></div>
       <Component {...pageProps} />
     </SessionProvider>
   );

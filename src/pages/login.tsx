@@ -10,7 +10,7 @@ const LoginPage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-screen min-h-screen flex flex-col justify-center">
+      <div className="w-screen h-screen flex items-center justify-center">
         <Login />
       </div>
     </>

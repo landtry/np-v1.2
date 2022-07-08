@@ -51,6 +51,7 @@ function DashboardAssessment({ entity_id }: DashboardProps) {
   if (!data) {
     return (
       <>
+        <div className="h-18"></div>
         <div className="h-8"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
           <div className="max-w-4.5xl  mx-auto h-fit flex flex-col">
@@ -71,6 +72,7 @@ function DashboardAssessment({ entity_id }: DashboardProps) {
 
   return (
     <>
+      <div className="h-18"></div>
       <div className="h-8"></div>
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 h-full md:ml-48">
         <div className="md:max-w-4.5xl 2xl:max-w-7xl mx-auto h-fit flex flex-col">
@@ -89,12 +91,20 @@ function DashboardAssessment({ entity_id }: DashboardProps) {
             role="list"
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             {entities.map((entity, index) => (
-              <DashboardAssessmentCard key={index} />
+              <Link key={index} href={`#`}>
+                <a>
+                  <DashboardAssessmentCard key={index} />
+                </a>
+              </Link>
             ))}
           </ul>
         </div>
       </div>
-      <DashboardAssessmentModal show={open} onClose={() => setOpen(false)} />
+      <DashboardAssessmentModal
+        show={open}
+        onClose={() => setOpen(false)}
+        entity_id={entity_id}
+      />
       <div className="h-8"></div>
     </>
   );
