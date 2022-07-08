@@ -5,6 +5,7 @@ import type { AppType } from "next/dist/shared/lib/utils";
 import superjson from "superjson";
 import { SessionProvider } from "next-auth/react";
 import "../styles/globals.css";
+import Nav from "../components/Nav";
 
 const MyApp: AppType = ({
   Component,
@@ -12,6 +13,8 @@ const MyApp: AppType = ({
 }) => {
   return (
     <SessionProvider session={session}>
+      <Nav />
+      <div className="h-18"></div>
       <Component {...pageProps} />
     </SessionProvider>
   );

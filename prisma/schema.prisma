@@ -50,6 +50,7 @@ model User {
     image         String?
     accounts      Account[]
     sessions      Session[]
+    entities      Entity[]
 }
 
 model VerificationToken {
@@ -58,4 +59,90 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+model Entity {
+    id                             String       @id @default(cuid())
+    user_id                        String
+    user                           User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    name                           String
+    overall_progress               Int?         @default(0)
+    number_of_employees            Int?         @default(0)
+    contact_person                 String?
+    contact_email                  String?
+    company_website                String?
+    desktop_os                     String?
+    server_os                      String?
+    workstation_antivirus          String?
+    server_antivirus               String?
+    anti_malware                   String?
+    application_blocking           String?
+    web_content_filtering          String?
+    web_proxy_server               String?
+    edge_firewalls                 String?
+    internal_firewalls             String?
+    dns_and_dhcp_services          String?
+    client_vpn                     String?
+    multi_factor_authentication    String?
+    personnel_management           String?
+    identity_management            String?
+    compliance_management          String?
+    training                       String?
+    single_sign_on                 String?
+    account_password_vault         String?
+    data_loss_prevention           String?
+    inventory_management           String?
+    vulnerability_scanning         String?
+    file_integrity_management      String?
+    data_governance                String?
+    patching_windows               String?
+    virtualization                 String?
+    configuration_management       String?
+    database_management_system     String?
+    remote_assisstance             String?
+    email_server                   String?
+    anti_spam                      String?
+    helpdesk_incident_monitoring   String?
+    siem_event_log_aggregation     String?
+    event_log_monitoring           String?
+    network_monitoring             String?
+    load_balancer                  String?
+    web_server                     String?
+    web_application_firewall       String?
+    development_story_bug_tracking String?
+    development_code_repository    String?
+    remote_assistance              String?
+    patching_everything_else       String?
+    smes                           Sme[]
+    assessments                    Assessment[]
+}
+
+model Sme {
+    id        String  @id @default(cuid())
+    entity_id String
+    name      String?
+    title     String?
+    entity    Entity  @relation(fields: [entity_id], references: [id], onDelete: Cascade)
+}
+
+model Assessment {
+    id               String  @id @default(cuid())
+    entity_id        String
+    name             String?
+    standard         String?
+    overall_progress Int?    @default(0)
+    overall_score    Int?    @default(0)
+    template         Json?
+    entity           Entity  @relation(fields: [entity_id], references: [id], onDelete: Cascade)
+}
+
+model Changelog {
+    id               String    @id @default(cuid())
+    assessment_id    String?
+    user_id          String?
+    user             String?
+    updated_at       DateTime?
+    operation_action String?
+    operation_object String?
+    section_number   String
 }

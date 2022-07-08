@@ -10,9 +10,8 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     Auth0Provider({
-      clientId: "KTPgNeL0h5qNvPlxaG8Uwk4aLDg6z95T",
-      clientSecret:
-        "FXzqyP9havFc_8MPECRbQ_B6uonPXNl8AiJGdBhuGxfGIxh_m17FxLiW5evvhvsN",
+      clientId: process.env.AUTH0_ID ?? "",
+      clientSecret: process.env.AUTH0_SECRET ?? "",
       issuer: "https://dev-wyupo5m0.us.auth0.com",
     }),
   ],
@@ -34,10 +33,12 @@ export const authOptions: NextAuthOptions = {
     updateAge: 24 * 60 * 60, // 24 hours
   },
   callbacks: {
-    session({ session }) {
-      return session; // The return type will match the one returned in `useSession()`
+    session({ session, user }) {
+      session.userId = user.id;
+      return session;
     },
   },
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);

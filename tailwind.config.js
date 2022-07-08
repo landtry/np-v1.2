@@ -135,10 +135,12 @@ module.exports = {
       40: "10rem",
       44: "11rem",
       48: "12rem",
+      50: "12.5rem",
       52: "13rem",
       56: "14rem",
       60: "15rem",
       64: "16rem",
+      68: "17rem",
       72: "18rem",
       80: "20rem",
       96: "24rem",
@@ -427,6 +429,7 @@ module.exports = {
       ],
     },
     fontSize: {
+      "2xs": ["0.6rem", { lineHeight: "1rem" }],
       xs: ["0.75rem", { lineHeight: "1rem" }],
       sm: ["0.875rem", { lineHeight: "1.25rem" }],
       base: ["1rem", { lineHeight: "1.5rem" }],
@@ -1003,5 +1006,5 @@ module.exports = {
     "active",
     "disabled",
   ],
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

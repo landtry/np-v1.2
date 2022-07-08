@@ -2,14 +2,18 @@ import React from "react";
 import DashboardHomeCard from "./DashboardHomeCard";
 import { trpc } from "../utils/trpc";
 import DashboardHomeCardLoader from "./DashboardHomeCardLoader";
+import Link from "next/link";
 
 function DashboardHome() {
-  const { status, data } = trpc.useQuery(["auth.getSession"]);
-  const users = trpc.useQuery(["example.getAllUsers"]);
-  console.log(users.data);
-  // const data = null;
+  const session = trpc.useQuery(["auth.getSession"]);
 
-  const entities = [
+  const entities = trpc.useQuery(["entity.entities"]);
+
+  console.log(entities);
+
+  const loaderCards = ["1", "2", "3", "4", "5", "6", "7", "8"];
+
+  const entitiesFake = [
     {
       name: "Boldist",
     },
@@ -36,7 +40,7 @@ function DashboardHome() {
     },
   ];
 
-  if (!data) {
+  if (!session.data || entities.status === "loading") {
     return (
       <>
         <div className="h-8"></div>
@@ -46,7 +50,7 @@ function DashboardHome() {
             <ul
               role="list"
               className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {entities.map((entity, index) => (
+              {loaderCards.map((entity, index) => (
                 <DashboardHomeCardLoader key={index} />
               ))}
             </ul>
@@ -62,15 +66,21 @@ function DashboardHome() {
       <div className="h-8"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="max-w-4.5xl  mx-auto h-fit flex flex-col">
-          <button className="bg-custom-blue text-white hover:bg-custom-blue-400 px-5 py-3 rounded-full text-sm font-bold w-fit ml-auto">
-            Add Entity
-          </button>
+          <Link href="/addEntity">
+            <button className="bg-custom-blue text-white hover:bg-custom-blue-400 px-5 py-3 rounded-full text-sm font-bold w-fit ml-auto">
+              Add Entity
+            </button>
+          </Link>
           <div className="h-6"></div>
           <ul
             role="list"
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {entities.map((entity, index) => (
-              <DashboardHomeCard key={index} name={entity.name} />
+            {entities.data?.map((entity, index) => (
+              <Link key={index} href={`/entity/${entity.id}`}>
+                <a>
+                  <DashboardHomeCard name={entity.name} />
+                </a>
+              </Link>
             ))}
           </ul>
         </div>

@@ -2,15 +2,17 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-import Avatar from "../icons/Avatar";
+import Avatar from "../icons/AvatarIcon";
 import { signOut, useSession } from "next-auth/react";
 import Logo from "../icons/Logo";
-import MenuArrow from "../icons/MenuArrow";
-import DownArrow from "../icons/DownArrow";
+import MenuArrowIcon from "../icons/MenuArrowIcon";
+import DownArrowIcon from "../icons/DownArrowIcon";
 import NavLoader from "./NavLoader";
 import { trpc } from "../utils/trpc";
+import Link, { type LinkProps } from "next/link";
+import ActiveLink from "./ActiveLink";
 
-const navigation = [{ name: "Dashboard", href: "#", current: true }];
+const navigation = [{ name: "Dashboard", href: "/" }];
 const userNavigation = [
   { name: "Your Profile", href: "#", onClick: () => "" },
   { name: "Settings", href: "#", onClick: () => "" },
@@ -33,7 +35,7 @@ export default function Example() {
   return (
     <Disclosure
       as="nav"
-      className="bg-white fixed top-0 w-screen border-b border-b-custom-slate-300">
+      className="bg-white fixed top-0 w-screen border-b border-b-custom-slate-300 z-40">
       {({ open }: { open: boolean }) => (
         <>
           <div className="max-w-screen mx-auto px-4 sm:px-6 lg:px-6 ">
@@ -47,18 +49,14 @@ export default function Example() {
               <div className="flex items-center">
                 <div className="hidden md:ml-0 md:flex md:items-center md:space-x-4">
                   {navigation.map((item) => (
-                    <a
+                    <ActiveLink
                       key={item.name}
                       href={item.href}
-                      className={classNames(
-                        item.current
-                          ? " bg-custom-slate-200"
-                          : " hover:text-custom-gray-400",
-                        "px-5 py-3 rounded-full text-base font-bold text-custom-slate-900"
-                      )}
-                      aria-current={item.current ? "page" : undefined}>
-                      {item.name}
-                    </a>
+                      activeClassName="bg-custom-slate-200 hover:text-custom-slate-900">
+                      <a className="px-5 py-3 rounded-full text-base font-bold text-custom-slate-900 hover:bg-custom-slate-200">
+                        {item.name}
+                      </a>
+                    </ActiveLink>
                   ))}
                 </div>
                 <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
@@ -70,7 +68,7 @@ export default function Example() {
                         <span className=" ml-3 text-base font-bold">
                           Entities
                         </span>
-                        <DownArrow />
+                        <DownArrowIcon />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -82,18 +80,15 @@ export default function Example() {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-90">
                       <Menu.Items className="origin-top-right absolute -left-12 mt-2 w-48 top-12 rounded-br rounded-bl shadow-custom py-1 bg-custom-blue ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <MenuArrow />
+                        <MenuArrowIcon />
                         {userNavigation.map((item) => (
                           <Menu.Item key={item.name}>
                             {({ active }: { active: boolean }) => (
-                              <a
-                                href={item.href}
-                                className={classNames(
-                                  active ? "bg-custom-blue-400" : "",
-                                  "block px-4 py-1 text-sm text-custom-slate-100"
-                                )}>
-                                {item.name}
-                              </a>
+                              <Link href={item.href}>
+                                <a className="block px-4 py-1 text-sm text-custom-slate-100 bg-custom-blue hover:bg-custom-blue-400">
+                                  {item.name}
+                                </a>
+                              </Link>
                             )}
                           </Menu.Item>
                         ))}
@@ -111,7 +106,7 @@ export default function Example() {
                         <span className=" ml-3 text-base font-bold">
                           {data?.user?.name ?? ""}
                         </span>
-                        <DownArrow />
+                        <DownArrowIcon />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -122,8 +117,8 @@ export default function Example() {
                       leave="transition ease-in duration-75"
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95">
-                      <Menu.Items className="origin-top-right absolute r-0 mt-2 w-48 top-12 rounded-br rounded-bl shadow-custom py-1 bg-custom-blue ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <MenuArrow />
+                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 top-12 rounded-br rounded-bl shadow-custom py-1 bg-custom-blue ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <MenuArrowIcon />
                         {userNavigation.map((item) => (
                           <Menu.Item key={item.name}>
                             {({ active }: { active: boolean }) => (
@@ -131,9 +126,11 @@ export default function Example() {
                                 href={item.href}
                                 className={classNames(
                                   active ? "bg-custom-blue-400" : "",
-                                  "block px-4 py-1 text-sm text-custom-slate-100"
+                                  "block px-4 py-1 text-sm text-custom-slate-100 w-full"
                                 )}>
-                                <span onClick={() => item.onClick()}>
+                                <span
+                                  onClick={() => item.onClick()}
+                                  className="w-full">
                                   {item.name}
                                 </span>
                               </a>
@@ -166,13 +163,7 @@ export default function Example() {
                   key={item.name}
                   as="a"
                   href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "bg-custom-slate-200"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                    "block px-3 py-2 rounded-full text-base font-bold  text-custom-slate-900"
-                  )}
-                  aria-current={item.current ? "page" : undefined}>
+                  className={""}>
                   {item.name}
                 </Disclosure.Button>
               ))}

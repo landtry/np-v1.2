@@ -1,6 +1,6 @@
 import React from "react";
 
-function DownArrow() {
+function DownArrowIcon() {
   return (
     <svg
       className="w-6 h-6 pl-1 pr-1"
@@ -18,4 +18,4 @@ function DownArrow() {
   );
 }
 
-export default DownArrow;
+export default DownArrowIcon;

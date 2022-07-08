@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
-import { trpc } from "../utils/trpc";
 import Router from "next/router";
-import DashboardHome from "../components/DashboardHome";
+import AddEntity from "../components/AddEntity";
+import Login from "../components/Login";
 
-const Home: NextPage = () => {
+const AddEntityPage: NextPage = () => {
   const { status, data } = useSession({
     required: true,
     onUnauthenticated() {
@@ -19,9 +19,10 @@ const Home: NextPage = () => {
         <title>Neutral Party</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <DashboardHome />
+
+      <AddEntity />
     </>
   );
 };
 
-export default Home;
+export default AddEntityPage;

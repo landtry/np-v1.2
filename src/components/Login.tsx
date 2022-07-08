@@ -28,6 +28,17 @@ export default function Login() {
                   }}>
                   Sign in
                 </button>
+                <div className="h-10 flex justify-center items-center">
+                  <p>or</p>
+                </div>
+                <button
+                  className="w-full flex justify-center py-0 px-4 rounded-md text-sm font-medium text-custom-blue-400 hover:underline"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signIn("auth0", { callbackUrl: "/" }, { prompt: "login" });
+                  }}>
+                  Sign in with a new account
+                </button>
               </div>
             </form>
 

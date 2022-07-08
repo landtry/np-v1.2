@@ -1,6 +1,6 @@
 import React from "react";
 
-function MenuArrow() {
+function MenuArrowIcon() {
   return (
     <svg
       className="absolute -top-2 right-18 -z-10"
@@ -18,4 +18,4 @@ function MenuArrow() {
   );
 }
 
-export default MenuArrow;
+export default MenuArrowIcon;

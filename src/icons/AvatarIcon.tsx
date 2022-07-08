@@ -5,7 +5,7 @@ interface Props {
   image: string;
 }
 
-const Avatar = ({ image }: Props) => {
+const AvatarIcon = ({ image }: Props) => {
   if (!image) {
     return (
       <span className="inline-block h-10 w-10 rounded-full overflow-hidden bg-gray-100">
@@ -30,4 +30,4 @@ const Avatar = ({ image }: Props) => {
   );
 };
 
-export default Avatar;
+export default AvatarIcon;
