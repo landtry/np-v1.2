@@ -1,27 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-
-// module.exports = {
-//   content: [],
-//   theme: {
-//     extend: {},
-//     colors: {
-//       "custom-maroon": "#C4000",
-//       "custom-yellow": "#FFE200",
-//       "custom-orange": "#FF9D00",
-//       "custom-red": "#FF000",
-//       "custom-green": "#11DE00",
-//       "custom-gray-200": "#CCCED1",
-//       "custom-gray-400": "#8190A3",
-//       "custom-slate-100": "#F4F6FA",
-//       "custom-slate-200": "#E4EBF7",
-//       "custom-slate-300": "D6DFEF",
-//       "custom-slate-900": "#13263F",
-//       "custom-blue": "#317CE6",
-//     },
-//   },
-//   plugins: [],
-// };
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
@@ -34,6 +10,7 @@ module.exports = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1536px",
+      "3xl": "2056px",
     },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
@@ -76,6 +53,7 @@ module.exports = {
       "custom-slate-900": "#13263F",
       "custom-blue": "#317CE6",
       "custom-blue-400": "#256fd8",
+      "custom-blue-800": "#2D4065",
     }),
     columns: {
       auto: "auto",

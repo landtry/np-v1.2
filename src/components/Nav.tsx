@@ -103,7 +103,7 @@ export default function Example() {
                       <Menu.Button className="bg-white flex items-center text-sm rounded-full h-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-custom-blue">
                         <span className="sr-only">Open user menu</span>
                         <Avatar image={data?.user?.image ?? ""} />
-                        <span className=" ml-3 text-base font-bold">
+                        <span className=" ml-3 text-base font-bold capitalize">
                           {data?.user?.name ?? ""}
                         </span>
                         <DownArrowIcon />

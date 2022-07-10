@@ -24,7 +24,7 @@ function ProgressRing({
 
   return (
     <div
-      className="relative flex justify-center items-center font-bold text-sm text-custom-slate-900"
+      className="relative flex justify-center items-center font-bold text-sm"
       style={{ width: "50px", height: "50px" }}>
       <svg
         className="rotate-90 absolute top-0 right-0 overflow-visible"

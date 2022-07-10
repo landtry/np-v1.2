@@ -1,0 +1,869 @@
+{
+  "standard": "ISO27001",
+  "sections": [
+    {
+      "section_number": "a_5",
+      "title": "Information Security Policies",
+      "sections": [
+        {
+          "section_number": "a_5_1",
+          "title": "Management direction for information security",
+          "sub_sections": [
+            {
+              "section_number": "a_5_1_1",
+              "title": "Policies for information security",
+              "question": "Have you defined a set of policies for information security that are approved by management and are published and communicated to employees and relevant external parties?"
+            },
+            {
+              "section_number": "a_5_1_2",
+              "title": "Review of the policies for information security",
+              "question": "Do you review the policies for information security at planned intervals or if significant changes occur to ensure their continuing stability, adequacy and effectiveness?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_6",
+      "title": "Organization of Information Security",
+      "sections": [
+        {
+          "section_number": "a_6_1",
+          "title": "Internal Organization",
+          "sub_sections": [
+            {
+              "section_number": "a_6_1_1",
+              "title": "Information security roles and responsibilities",
+              "question": "Have you defined and allocated all security responsibilities?"
+            },
+            {
+              "section_number": "a_6_1_2",
+              "title": "Segregation of duties",
+              "question": "are conflicting duties and areas of responsibility segregated to reduce opportunities for unauthorized or unintentional modification or misuse of the organization's assets"
+            },
+            {
+              "section_number": "a_6_1_3",
+              "title": "Contact with authorities",
+              "question": "are appropriate contacts with relevant authorities properly maintained?"
+            },
+            {
+              "section_number": "a_6_1_4",
+              "title": "Contact with special interest groups",
+              "question": "are appropriate contacts with special interest groups or other specialist security forums and professional associations maintained?"
+            },
+            {
+              "section_number": "a_6_1_5",
+              "title": "Information security in project management",
+              "question": "Have you addressed Information security in project management, regardless of the type of the project?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_6_2",
+          "title": "Mobile devices and teleworking",
+          "sub_sections": [
+            {
+              "section_number": "a_6_2_1",
+              "title": "Mobile device policy",
+              "question": "Have you adopted a policy and supporting security measures to manage the risks introduced by using mobile devices?"
+            },
+            {
+              "section_number": "a_6_2_2",
+              "title": "Teleworking",
+              "question": "Have you implemented a policy and supporting security measures to protect information accessed, processed or stored at teleworking sites?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_7",
+      "title": "Human resource security",
+      "sections": [
+        {
+          "section_number": "a_7_1",
+          "title": "Prior to employment",
+          "sub_sections": [
+            {
+              "section_number": "a_7_1_1",
+              "title": "Screening",
+              "question": "Have you carried out background verification checks on all candidates for employment in accordance with relevant laws, regulations and ethics and are they proportional to the business requirements, the classification of the information to be accessed, and the perceived risks?"
+            },
+            {
+              "section_number": "a_7_1_2",
+              "title": "Terms and conditions of employment",
+              "question": "Have you stated the contractual agreements with employees and contractors and the organization's responsibilities for information security?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_7_2",
+          "title": "Mobile devices and teleworking",
+          "sub_sections": [
+            {
+              "section_number": "a_7_2_1",
+              "title": "Management responsibilities",
+              "question": "Has management required all employees and contractors to apply information security in accordance with the established policies and procedures of the organization?"
+            },
+            {
+              "section_number": "a_7_2_2",
+              "title": "Information security awareness, education and training",
+              "question": "Have all employees and, where relevant, contractors received appropriate awareness education and training and regular updates in organizational policies and procedures, as relevant for their job function?"
+            },
+            {
+              "section_number": "a_7_2_3",
+              "title": "Disciplinary process",
+              "question": "Is there a formal and communicated disciplinary process in place to take action against employees who have committed an information security breach?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_7_3",
+          "title": "Termination and change of employment",
+          "sub_sections": [
+            {
+              "section_number": "a_7_3_1",
+              "title": "Termination or change of employment responsibilities",
+              "question": "Have you defined information security responsibilities and duties that remain valid after termination of change of employment, communicated to the employee or contractor and enforced?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_8",
+      "title": "asset Management",
+      "sections": [
+        {
+          "section_number": "a_8_1",
+          "title": "Responsibility for assets",
+          "sub_sections": [
+            {
+              "section_number": "a_8_1_1",
+              "title": "Inventory of assets",
+              "question": "Have you defined all assets associated with information and information processing facilities, and have you drawn up and maintained inventory of those assets?"
+            },
+            {
+              "section_number": "a_8_1_2",
+              "title": "Ownership of assets",
+              "question": "Do you own assets maintained in the inventory?"
+            },
+            {
+              "section_number": "a_8_1_3",
+              "title": "a_cceptable us of assets",
+              "question": "Have you identified, documented and implemented rules for the acceptable use of information and of the assets associated with information and information processing facilities?"
+            },
+            {
+              "section_number": "a_8_1_4",
+              "title": "Return of assets",
+              "question": "Do you require all employees and external party users to return all of the organizational assets in their possession upon termination of their employment, contract or agreement?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_8_2",
+          "title": "Information Classification",
+          "sub_sections": [
+            {
+              "section_number": "a_8_2_1",
+              "title": "Classification of information",
+              "question": "Have you classified information in terms of legal requirements, value, criticality and sensitivity to unauthorized disclosure or modification?"
+            },
+            {
+              "section_number": "a_8_2_2",
+              "title": "Labelling of information",
+              "question": "Hav you developed and implemented an appropriate set of procedures for information labelling in accordance with the information classification scheme adopted by the organization?"
+            },
+            {
+              "section_number": "a_8_2_3",
+              "title": "Handling of assets",
+              "question": "Have you developed and implemented procedures for handling assets in accordance with the information classification scheme adopted by the organization?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_8_3",
+          "title": "Media Handling",
+          "sub_sections": [
+            {
+              "section_number": "a_8_3_1",
+              "title": "Management of removable media",
+              "question": "Have you implemented procedures for the management of removable media in accordance with the classification scheme adopted by the organization?"
+            },
+            {
+              "section_number": "a_8_3_2",
+              "title": "Disposal of media",
+              "question": "Do you dispose of media securely when no longer required, using formal procedures?"
+            },
+            {
+              "section_number": "a_8_3_3",
+              "title": "Physical media transfer",
+              "question": "Do you protect media containing important information against unauthorized access, misuse or corruption during transportation?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_9",
+      "title": "access Control",
+      "sections": [
+        {
+          "section_number": "a_9_1",
+          "title": "Business requirements of access control",
+          "sub_sections": [
+            {
+              "section_number": "a_9_1_1",
+              "title": "a_ccess control policy",
+              "question": "Have you established an access control policy that is documented and reviewed based on business and information security requirements?"
+            },
+            {
+              "section_number": "a_9_1_2",
+              "title": "a_ccess to networks and network services",
+              "question": "Do you only provide users with access to the network and network services that they have been specifically authorized to use?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_9_2",
+          "title": "User access management",
+          "sub_sections": [
+            {
+              "section_number": "a_9_2_1",
+              "title": "User registration and de-registration",
+              "question": "Have you implemented a formal user registration and de-registration process to enable assignment of access rights?"
+            },
+            {
+              "section_number": "a_9_2_2",
+              "title": "User access provisioning",
+              "question": "Have you implemented a formal user access provisioning process to assign or revoke access rights for all user types to all systems and services?"
+            },
+            {
+              "section_number": "a_9_2_3",
+              "title": "Management of privileged access rights",
+              "question": "Do you restrict and control the allocation and use of privileged access rights?"
+            },
+            {
+              "section_number": "a_9_2_4",
+              "title": "Management of secret authentication information of users",
+              "question": "Do you control the allocation of secret authentication information through a formal management process?"
+            },
+            {
+              "section_number": "a_9_2_5",
+              "title": "Review of user access rights",
+              "question": "Do asset owners review users' access rights at regular intervals?"
+            },
+            {
+              "section_number": "a_9_2_6",
+              "title": "Removal of adjustment of access rights",
+              "question": "Do you remove the access rights of all employees and external party users to information and information processing facilities upon termination of their employment, contract or agreement, or adjusted upon change?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_9_3",
+          "title": "User responsibilities",
+          "sub_sections": [
+            {
+              "section_number": "a_9_3_1",
+              "title": "Use of secret authentication information",
+              "question": "Do you require users to follow the organization's practices in the user of secret authentication information?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_9_4",
+          "title": "System and application access control",
+          "sub_sections": [
+            {
+              "section_number": "a_9_4_1",
+              "title": "Information access restriction",
+              "question": "Do you restrict access to information and application system functions in accordance with the access control policy?"
+            },
+            {
+              "section_number": "a_9_4_2",
+              "title": "Secure log-on procedures",
+              "question": "Do you control access to systems and applications, where required by the access control policy, by a secure log-on procedure?"
+            },
+            {
+              "section_number": "a_9_4_3",
+              "title": "Password management system",
+              "question": "are all password management systems interactive and do they ensure quality passwords?"
+            },
+            {
+              "section_number": "a_9_4_4",
+              "title": "Use of privileged utility programs",
+              "question": "Do you restrict and tightly control the use of utility programs that might be capable of overriding system and application controls?"
+            },
+            {
+              "section_number": "a_9_4_5",
+              "title": "a_ccess control to program source code",
+              "question": "Do you restrict access to program source code?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_10",
+      "title": "Cryptography",
+      "sections": [
+        {
+          "section_number": "a_10_1",
+          "title": "Policy on the use of cryptographic controls",
+          "sub_sections": [
+            {
+              "section_number": "a_10_1_1",
+              "title": "Policy on the use of cryptographic controls",
+              "question": "Have you developed and implemented a policy on the use of cryptographic controls for protection of information?"
+            },
+            {
+              "section_number": "a_10_1_2",
+              "title": "Key management",
+              "question": "Have you developed and implemented a policy on the use, protection and lifetime of cryptographic keys through their whole lifecycle?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_11",
+      "title": "Physical and environmental security",
+      "sections": [
+        {
+          "section_number": "a_11_1",
+          "title": "Secure areas",
+          "sub_sections": [
+            {
+              "section_number": "a_11_1_1",
+              "title": "Physical security perimeter",
+              "question": "Have you defined and used security perimeters to protect the areas that contain either sensitive or critical information and information processing facilities?"
+            },
+            {
+              "section_number": "a_11_1_2",
+              "title": "Physical entry controls",
+              "question": "Have you protected secure areas by appropriate entry controls to ensure that only authorized personnel are allowed access?"
+            },
+            {
+              "section_number": "a_11_1_3",
+              "title": "Securing offices, rooms and facilities",
+              "question": "Have you designers and applied physical security for offices, rooms and facilities?"
+            },
+            {
+              "section_number": "a_11_1_4",
+              "title": "Protecting against external and environmental threats",
+              "question": "Have you designed and applied physical protection against natural disasters, malicious attacks or accidents?"
+            },
+            {
+              "section_number": "a_11_1_5",
+              "title": "Working in secure areas",
+              "question": "Have you designed and applied procedures for working in secure areas?"
+            },
+            {
+              "section_number": "a_11_1_6",
+              "title": "Delivery and loading areas",
+              "question": "Do you control and, if possible, isolate access points such as delivery and loading areas and other points where authorized persons could enter the premises from information processing facilities to avoid unauthorized access?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_11_2",
+          "title": "Equipment",
+          "sub_sections": [
+            {
+              "section_number": "a_11_2_1",
+              "title": "Equipment siting an protection",
+              "question": "Has equipment been sited and protected to reduce the risk from environmental threats and hazards, and opportunities for unauthorized access?"
+            },
+            {
+              "section_number": "a_11_2_2",
+              "title": "Supporting utilities",
+              "question": "Do you protect equipment from power failures and other disruptions caused by failures in supporting utilities?"
+            },
+            {
+              "section_number": "a_11_2_3",
+              "title": "Cabling security",
+              "question": "Do you protect power and telecommunications cabling that carries data or supporting information services from interception, interference, or damage?"
+            },
+            {
+              "section_number": "a_11_2_4",
+              "title": "Equipment maintenance",
+              "question": "Do you correctly maintain equipment to ensure its continued availability and integrity?"
+            },
+            {
+              "section_number": "a_11_2_5",
+              "title": "Removal of assets",
+              "question": "Do you ensure that equipment, information or software is not taken off-site without proper authorization?"
+            },
+            {
+              "section_number": "a_11_2_6",
+              "title": "Security of equipment and assets off-premises",
+              "question": "Have you applied security to off-site assets while taking into account the different risks of working outside the organization's premises?"
+            },
+            {
+              "section_number": "a_11_2_7",
+              "title": "Secure disposal or reuse of equipment",
+              "question": "Have you verified all items of equipment containing storage media to ensure that any sensitive data and licensed software has been removed or securely overwritten prior to disposal or re-use?"
+            },
+            {
+              "section_number": "a_11_2_8",
+              "title": "Unattended user equipment",
+              "question": "Do your users ensure that unattended equipment has appropriate protection?"
+            },
+            {
+              "section_number": "a_11_2_9",
+              "title": "Clear desk and clear screen policy",
+              "question": "Have you adopted a clear desk policy for papers and removable storage media and a clear screen policy for information processing facilities?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_12",
+      "title": "Operations security",
+      "sections": [
+        {
+          "section_number": "a_12_1",
+          "title": "Operational procedures and responsibilities",
+          "sub_sections": [
+            {
+              "section_number": "a_12_1_1",
+              "title": "documented operating procedures",
+              "question": "Do you document and make available operating procedures to all users who need them?"
+            },
+            {
+              "section_number": "a_12_1_2",
+              "title": "Change management",
+              "question": "Do you control changes to the organization, business processes, information processing facilities and systems that affect information security?"
+            },
+            {
+              "section_number": "a_12_1_3",
+              "title": "Capacity management",
+              "question": "Do you monitor, tune and make future projections of future capacity requirements to ensure the required system performance?"
+            },
+            {
+              "section_number": "a_12_1_4",
+              "title": "Separation of development, testing and operational environments",
+              "question": "Do you separate development, testing, and operational environments to reduce the risks of unauthorized access or changes to the operational environment?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_12_2",
+          "title": "Protection from malware",
+          "sub_sections": [
+            {
+              "section_number": "a_12_2_1",
+              "title": "Controls against malware",
+              "question": "Have you implemented detection, prevention, and recovery controls to protect against malware, combined with appropriate user awareness?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_12_3",
+          "title": "Backup",
+          "sub_sections": [
+            {
+              "section_number": "a_12_3_1",
+              "title": "Information backup",
+              "question": "Do you take and test regularly, in accordance with an agreed backup policy, backup copies of information, software and system images?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_12_4",
+          "title": "Logging and monitoring",
+          "sub_sections": [
+            {
+              "section_number": "a_12_4_1",
+              "title": "Event logging",
+              "question": "Do you produce, keep and regularly review event logs recording user activities, exceptions, faults and information security events?"
+            },
+            {
+              "section_number": "a_12_4_2",
+              "title": "Protection of log information",
+              "question": "Do you protect logging facilities and log information tampering and unauthorized access?"
+            },
+            {
+              "section_number": "a_12_4_3",
+              "title": "a_dministrator and operator logs",
+              "question": "Do you log system administrator and system operator activities and are the logs protected and regularly reviewed?"
+            },
+            {
+              "section_number": "a_12_4_4",
+              "title": "Clock synchronization",
+              "question": "Do you synchronize, to a single reference time source, the clocks of all relevant information processing systems within an organization or security domain?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_12_5",
+          "title": "Control of operational software",
+          "sub_sections": [
+            {
+              "section_number": "a_12_5_1",
+              "title": "Installation of software on operation systems",
+              "question": "Do you implement procedures to control the installation of software on operation systems?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_12_6",
+          "title": "Technical vulnerability management",
+          "sub_sections": [
+            {
+              "section_number": "a_12_6_1",
+              "title": "Management of technical vulnerabilities",
+              "question": "Do you obtain, in a timely fashion, information about technical vulnerabilities of information systems being used, as well as the organization's exposure to such vulnerabilities evaluated and appropriate measures taken to address the associated risk?"
+            },
+            {
+              "section_number": "a_12_6_2",
+              "title": "Restrictions on software installation",
+              "question": "Do you establish and implement rules governing the installation of software by users?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_12_7",
+          "title": "Information systems audit considerations",
+          "sub_sections": [
+            {
+              "section_number": "a_12_7_1",
+              "title": "Information systems audit controls",
+              "question": "are audit requirements and activities involving verification of operational systems carefully planned and agreed to minimize disruptions to business processes?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_13",
+      "title": "Communications security",
+      "sections": [
+        {
+          "section_number": "a_13_1",
+          "title": "Network security management",
+          "sub_sections": [
+            {
+              "section_number": "a_13_1_1",
+              "title": "Network controls",
+              "question": "are networks managed and controlled to protect information in systems and applications?"
+            },
+            {
+              "section_number": "a_13_1_2",
+              "title": "Security of network services",
+              "question": "are security mechanisms, service levels and management requirements of all network services identified and included in network services agreements, whether these services are provided in-house or outsourced?"
+            },
+            {
+              "section_number": "a_13_1_3",
+              "title": "Segregation in networks",
+              "question": "are groups of information services, users and information systems segregated on networks?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_13_2",
+          "title": "Information transfer",
+          "sub_sections": [
+            {
+              "section_number": "a_13_2_1",
+              "title": "Information transfer policies and procedures",
+              "question": "are formal transfer policies, procedures and controls in place to protect the transfer of information through the use of all types of communication facilities?"
+            },
+            {
+              "section_number": "a_13_2_2",
+              "title": "a_greements on information transfer",
+              "question": "Do agreements address the secure transfer of business information between organization and external parties?"
+            },
+            {
+              "section_number": "a_13_2_3",
+              "title": "Electronic messaging",
+              "question": "Is information involved in electronic messaging appropriately protected?"
+            },
+            {
+              "section_number": "a_13_2_4",
+              "title": "Confidentiality or non-disclosure agreements",
+              "question": "are requirements for confidentiality or non-disclosure agreements reflecting the organization's needs for the protection of information identified, regularly reviewed, and documented?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_14",
+      "title": "System acquisition, development and maintenance",
+      "sections": [
+        {
+          "section_number": "a_14_1",
+          "title": "Security requirements of information systems",
+          "sub_sections": [
+            {
+              "section_number": "a_14_1_1",
+              "title": "Information security requirements analysis and specification",
+              "question": "are information security related requirements included in the requirements for the new information systems or enhancements to existing information systems?"
+            },
+            {
+              "section_number": "a_14_1_2",
+              "title": "Securing application services on public networks",
+              "question": "Is information involved in application services passing over public networks protected from fraudulent activity, contract dispute and unauthorized disclosure and modification?"
+            },
+            {
+              "section_number": "a_14_1_3",
+              "title": "Protecting application services transactions",
+              "question": "Is information involved in application service transactions protected to prevent incomplete transmission, mis-routing, unauthorized disclosure, unauthorized message duplication or replay?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_14_2",
+          "title": "Security in development and support processes",
+          "sub_sections": [
+            {
+              "section_number": "a_14_2_1",
+              "title": "Secure development policy",
+              "question": "are rules for the development of software and systems established and applied to developments within the organization?"
+            },
+            {
+              "section_number": "a_14_2_2",
+              "title": "System change control procedures",
+              "question": "are changes to systems within the development lifecycle controlled by the use of formal change control procedures?"
+            },
+            {
+              "section_number": "a_14_2_3",
+              "title": "Technical review of applications after operating platform changes",
+              "question": "Whenever operating platforms are changed, are business critical applications reviewed and tested to ensure there is no adverse impact on organizational operations or security?"
+            },
+            {
+              "section_number": "a_14_2_4",
+              "title": "Restrictions on changes to software packages",
+              "question": "are modifications to software packages discouraged, limited to necessary changes and are all changes strictly controlled?"
+            },
+            {
+              "section_number": "a_14_2_5",
+              "title": "Secure system engineering principles",
+              "question": "are principles for engineering secure systems established, documented, maintained, and applied to any information system implementation efforts?"
+            },
+            {
+              "section_number": "a_14_2_6",
+              "title": "Secure development environment",
+              "question": "Does your organization establish and appropriately protect secure development environments for system development and integration efforts that cover the entire system development lifecycle?"
+            },
+            {
+              "section_number": "a_14_2_7",
+              "title": "Outsourced development",
+              "question": "Does your organization supervise and monitor the activity of outsourced system development?"
+            },
+            {
+              "section_number": "a_14_2_8",
+              "title": "System security testing",
+              "question": "Is the testing of security functionality carried out during development?"
+            },
+            {
+              "section_number": "a_14_2_9",
+              "title": "System acceptance testing",
+              "question": "are acceptance testing programs and related criteria established for new information systems, upgrades and new versions?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_14_3",
+          "title": "Test Data",
+          "sub_sections": [
+            {
+              "section_number": "a_14_3_1",
+              "title": "Protection of test data",
+              "question": "Is test data selected carefully, protected, and controlled?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_15",
+      "title": "Supplier relationships",
+      "sections": [
+        {
+          "section_number": "a_15_1",
+          "title": "Information security in supplier relationships",
+          "sub_sections": [
+            {
+              "section_number": "a_15_1_1",
+              "title": "Information security policy for supplier relationships",
+              "question": "are information security requirements for mitigating the risks associated with supplier's access to the organization's assets agreed upon by the supplier and also documented?"
+            },
+            {
+              "section_number": "a_15_1_2",
+              "title": "a_ddressing security within supplier agreements",
+              "question": "are all relevant information security requirements established and agreed upon by each supplier that may access, process, store, communicate, or provide IT infrastructure components for the organization's information?"
+            },
+            {
+              "section_number": "a_15_1_3",
+              "title": "Information and communication technology supply chain",
+              "question": "Do agreements with suppliers include requirements to address the information security risks associated with information and communications technology services and product supply chain?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_15_2",
+          "title": "Supplier service delivery management",
+          "sub_sections": [
+            {
+              "section_number": "a_15_2_1",
+              "title": "Monitoring and review supplier services",
+              "question": "Does your organization regularly monitor, review and audit supplier service delivery?"
+            },
+            {
+              "section_number": "a_15_2_2",
+              "title": "Managing changes to supplier services",
+              "question": "are changes to the provision of services by suppliers, including, maintaining, and improving existing information security policies, procedures and controls managed, taking into account the criticality of business information, systems, and processes involved and re-assessment of risks?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_16",
+      "title": "Information security incident management",
+      "sections": [
+        {
+          "section_number": "a_16_1",
+          "title": "Management of information security incidents and improvements",
+          "sub_sections": [
+            {
+              "section_number": "a_16_1_1",
+              "title": "Responsibilities and procedures",
+              "question": "are management responsibilities and procedures established to ensure a quick, effective and orderly response to information security incidents?"
+            },
+            {
+              "section_number": "a_16_1_2",
+              "title": "Reporting information security events",
+              "question": "are information security events reported through appropriate management channels as quickly as possible?"
+            },
+            {
+              "section_number": "a_16_1_3",
+              "title": "Reporting information security weaknesses",
+              "question": "are employees and contractors using the organization's information systems and services required to note and report any observed or suspected information security weaknesses in systems or services?"
+            },
+            {
+              "section_number": "a_16_1_4",
+              "title": "a_ssessment of and decision on information security events",
+              "question": "are information security events assessed and decided if they are to be classified as information security incidents?"
+            },
+            {
+              "section_number": "a_16_1_5",
+              "title": "Response to information security incidents",
+              "question": "are information security incidents responded to in accordance with the documented procedures?"
+            },
+            {
+              "section_number": "a_16_1_6",
+              "title": "Is knowledge gained from analyzing and resolving information security incidents used to reduce the likelihood or impact of future incidents?",
+              "question": ""
+            },
+            {
+              "section_number": "a_16_1_7",
+              "title": "Collection of evidence",
+              "question": "Does the organization define and apply procedures for the identification, collection, acquisition, and preservation of information, which can serve as evidence?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_17",
+      "title": "Information security aspects of business continuity management",
+      "sections": [
+        {
+          "section_number": "a_17_1",
+          "title": "Information security continuity",
+          "sub_sections": [
+            {
+              "section_number": "a_17_1_1",
+              "title": "Planning information security continuity",
+              "question": "Does your organization determine its requirements for information security and the continuity of information security management in adverse situations, e.g. during a crisis or disaster?"
+            },
+            {
+              "section_number": "a_17_1_2",
+              "title": "Implementing information security continuity",
+              "question": "Does your organization establish, document, implement, and maintain processes, procedures and controls to ensure the required level of continuity for information security during an adverse situation?"
+            },
+            {
+              "section_number": "a_17_1_3",
+              "title": "Verify, review and evaluate information security continuity",
+              "question": "Does your organization verify the established and implemented information security continuity controls at regular intervals in order to ensure that they are valid and effective during adverse situations?"
+            }
+          ]
+        },
+        {
+          "section_number": "a_17_2",
+          "title": "Redundancies",
+          "sub_sections": [
+            {
+              "section_number": "a_17_2_1",
+              "title": "a_vailability of information processing facilities",
+              "question": "are information processing facilities implemented with redundancy sufficient to meet availability requirements?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_number": "a_18",
+      "title": "Compliance",
+      "sections": [
+        {
+          "section_number": "a_18_1",
+          "title": "Compliance with legal and contractual requirements",
+          "sub_sections": [
+            {
+              "section_number": "a_18_1_1",
+              "title": "Identification of applicable legislation and contractual requirements",
+              "question": "are all relevant legislative statutory, regulatory, contractual requirements, and the organization's approach to meet these requirements explicitly identified, documented and kept up to date for each information system and the organization?"
+            },
+            {
+              "section_number": "a_18_1_2",
+              "title": "Intellectual property rights",
+              "question": "are appropriate procedures implemented to ensure compliance with legislative, regulatory and contractual requirements related to intellectual property rights and use of proprietary software products?"
+            },
+            {
+              "section_number": "a_18_1_3",
+              "title": "Protection of records",
+              "question": "are records protected from loss destruction, falsification, unauthorized access, and unauthorized release, in accordance with legislatory, regulatory, contractual and business requirements?"
+            },
+            {
+              "section_number": "a_18_1_4",
+              "title": "Privacy and protection of personally identifiable information",
+              "question": "are privacy and protection of personally identifiable information ensured as required in relevant legislation and regulation where applicable."
+            },
+            {
+              "section_number": "a_18_1_5",
+              "title": "Regulation of cryptographic controls",
+              "question": "are cryptographic controls used in compliance with all relevant agreements, legislation and regulations."
+            }
+          ]
+        },
+        {
+          "section_number": "a_18_2",
+          "title": "Information security reviews",
+          "sub_sections": [
+            {
+              "section_number": "a_18_2_1",
+              "title": "Independent review of information security",
+              "question": "are your organization's approach to managing information security and its implementation (i.e. control objectives, controls, policies, processes and procedures for information security) reviewed independently at planned intervals or when significant changes occur?"
+            },
+            {
+              "section_number": "a_18_2_2",
+              "title": "Compliance with security policies and standards",
+              "question": "Do managers regularly review the compliance of information processing and procedures within their area of responsibility with the appropriate security policies, standards and any other security requirements?"
+            },
+            {
+              "section_number": "a_18_2_3",
+              "title": "Technical compliance review",
+              "question": "are information systems regularly review for compliance with the organization's information security policies and standards?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

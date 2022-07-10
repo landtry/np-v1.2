@@ -39,7 +39,7 @@ function DashboardAssessmentCard(props: CardProps) {
       </div>
 
       <div className="flex flex-col">
-        <span className="font-bold text-base text-custom-slate-900">
+        <span className="font-bold text-base text-custom-slate-900 capitalize">
           {props.name}
         </span>
         <div className="h-2"></div>

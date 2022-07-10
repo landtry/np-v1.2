@@ -41,26 +41,37 @@ export const assessmentRouter = createRouter()
   .query("assessments", {
     input: getManyAssessmentsInput,
     resolve({ ctx, input }) {
-      console.log(input);
-
       return ctx.prisma.assessment.findMany({
         where: {
           entity_id: input.entity_id,
         },
       });
     },
+  })
+  .query("single-assessment", {
+    input: getSingleAssessmentSchema,
+    resolve({ input, ctx }) {
+      return ctx.prisma.assessment.findUnique({
+        where: {
+          id: input.assessment_id,
+        },
+        include: {
+          iso_27001: true,
+        },
+      });
+    },
   });
-// .query("single-entity", {
-//   input: getSingleEntitySchema,
+// .query("details", {
+//   input: getSingleAssessmentSchema,
 //   resolve({ input, ctx }) {
 //     console.log(input);
-//     return ctx.prisma.entity.findUnique({
+//     return ctx.prisma.iso_27001.findUnique({
 //       where: {
-//         id: input.entity_id,
+//         id: input.assessment_id,
 //       },
 //     });
 //   },
-// })
+// });
 // .mutation("update-entity", {
 //   input: createEntitySchema,
 //   async resolve({ ctx, input }) {

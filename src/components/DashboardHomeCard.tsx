@@ -27,7 +27,9 @@ function DashboardHomeCard({ name }: Props) {
         <EntityIcon src={null} />
       </div>
       <div className="flex flex-col justify-center items-center">
-        <h3 className="text-custom-slate-900 text-lg font-bold">{name}</h3>
+        <h3 className="text-custom-slate-900 text-lg font-bold capitalize">
+          {name}
+        </h3>
         <h6 className="text-xs font-medium text-custom-gray-400">ISO 27001</h6>
         <div className="h-2"></div>
       </div>
