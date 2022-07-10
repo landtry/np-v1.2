@@ -137,6 +137,7 @@ model Assessment {
     overall_score    Int?        @default(0)
     entity           Entity      @relation(fields: [entity_id], references: [id], onDelete: Cascade)
     iso_27001        Iso_27001[]
+    last_updated     DateTime    @default(now())
 }
 
 // Templates

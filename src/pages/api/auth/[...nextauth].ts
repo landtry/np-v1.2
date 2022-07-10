@@ -10,10 +10,9 @@ export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     Auth0Provider({
-      clientId: "KTPgNeL0h5qNvPlxaG8Uwk4aLDg6z95T",
-      clientSecret:
-        "FXzqyP9havFc_8MPECRbQ_B6uonPXNl8AiJGdBhuGxfGIxh_m17FxLiW5evvhvsN",
-      issuer: "https://dev-wyupo5m0.us.auth0.com",
+      clientId: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
+      issuer: process.env.AUTH0_ISSUER,
     }),
   ],
   session: {

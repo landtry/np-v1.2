@@ -50,7 +50,11 @@ function ProgressRing({
           fill="transparent"
           strokeWidth={stroke}
           strokeDasharray={circumference}
-          strokeDashoffset={progress ? circumference - progress * increment : 0}
+          strokeDashoffset={
+            progress
+              ? circumference - progress * increment
+              : circumference - 0 * increment
+          }
           r={normalizedRadius}
           cx={radius}
           cy={radius}

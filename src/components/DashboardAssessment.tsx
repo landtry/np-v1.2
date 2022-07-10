@@ -19,36 +19,18 @@ function DashboardAssessment({ entity_id }: DashboardProps) {
     },
   ]);
 
+  const assessments = trpc.useQuery([
+    "assessment.assessments",
+    {
+      entity_id,
+    },
+  ]);
+
+  console.log(assessments);
+
   const [open, setOpen] = useState(false);
 
-  const entities = [
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-  ];
-
-  if (!data) {
+  if (!data || !assessments) {
     return (
       <>
         <div className="h-18"></div>
@@ -59,7 +41,7 @@ function DashboardAssessment({ entity_id }: DashboardProps) {
             <ul
               role="list"
               className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              {entities.map((entity, index) => (
+              {assessments?.data?.map((assessment, index) => (
                 <DashboardHomeCardLoader key={index} />
               ))}
             </ul>
@@ -90,10 +72,19 @@ function DashboardAssessment({ entity_id }: DashboardProps) {
           <ul
             role="list"
             className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-            {entities.map((entity, index) => (
-              <Link key={index} href={`#`}>
+            {assessments?.data?.map((assessment, index) => (
+              <Link
+                key={index}
+                href={`../assessment/${entity_id + "+" + assessment.id}`}>
                 <a>
-                  <DashboardAssessmentCard key={index} />
+                  <DashboardAssessmentCard
+                    key={index}
+                    name={assessment.name}
+                    standard={assessment.standard}
+                    overall_progress={assessment.overall_progress}
+                    overall_score={assessment.overall_score}
+                    last_updated={assessment.last_updated}
+                  />
                 </a>
               </Link>
             ))}
