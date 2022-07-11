@@ -5,14 +5,21 @@ import Router, { useRouter } from "next/router";
 import DashboardDetailsSidebar from "../../components/DashboardDetailsSidebar";
 import DashboardDetails from "../../components/DashboardDetails";
 import { trpc } from "../../utils/trpc";
+import ProgressScoreCard from "../../components/ProgressScoreCard";
+import NavSecondary from "../../components/NavSecondary";
 
 const AssessmentPage: NextPage = ({ entity_id, assessment_id }: any) => {
-  const { status } = useSession({
-    required: true,
-    onUnauthenticated() {
-      Router.push("/login");
-    },
-  });
+  const entity = trpc.useQuery(["entity.single-entity", { entity_id }]);
+
+  const assessment = trpc.useQuery([
+    "assessment.single-assessment",
+    { assessment_id },
+  ]);
+
+  const user = trpc.useQuery([
+    "user.single-user",
+    { user_id: entity.data?.user_id ?? "" },
+  ]);
 
   // const { data, isLoading, error } = trpc.useQuery([
   //   "assessment.details",
@@ -32,13 +39,28 @@ const AssessmentPage: NextPage = ({ entity_id, assessment_id }: any) => {
   // }
 
   return (
-    <div className="flex h-full justify-between">
-      <DashboardDetailsSidebar
-        entity_id={entity_id}
-        assessment_id={assessment_id}
+    <>
+      <NavSecondary
+        assessmentName={assessment.data?.name ?? "Assessment"}
+        userName={user.data?.name ?? "User"}
+        entityName={entity.data?.name ?? "Entity"}
+        assessmentStandard={
+          assessment.data?.standard?.split("_").join(" ").toUpperCase() ??
+          "Standard"
+        }
       />
-      <DashboardDetails entity_id={entity_id} assessment_id={assessment_id} />
-    </div>
+      <div className="flex h-full justify-between">
+        <DashboardDetailsSidebar
+          entity_id={entity_id}
+          assessment_id={assessment_id}
+        />
+        <DashboardDetails entity_id={entity_id} assessment_id={assessment_id} />
+        <ProgressScoreCard
+          progress={assessment.data?.overall_score ?? 0}
+          score={assessment.data?.overall_score ?? 0}
+        />
+      </div>
+    </>
   );
 };
 

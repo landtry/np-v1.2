@@ -8,14 +8,16 @@ interface RingProps {
   progress: number;
   topColor: string;
   bottomColor: string;
+  width: string;
 }
 
-function ProgressRing({
+function ProgressRingLarge({
   radius,
   stroke,
   progress,
   topColor,
   bottomColor,
+  width,
 }: RingProps) {
   const _progress = 2;
   const normalizedRadius = radius - stroke + 2;
@@ -24,8 +26,8 @@ function ProgressRing({
 
   return (
     <div
-      className="relative flex justify-center items-center font-bold text-sm z-0"
-      style={{ width: "50px", height: "50px" }}>
+      className="relative flex justify-center items-center font-bold text-2xl z-0"
+      style={{ width: width, height: width }}>
       <svg
         className="rotate-90 absolute top-0 right-0 overflow-visible"
         height={radius * 2}
@@ -62,9 +64,9 @@ function ProgressRing({
       </svg>
 
       <span>{progress ?? 0}</span>
-      <sup className="mt-2">%</sup>
+      <sup className="mt-3">%</sup>
     </div>
   );
 }
 
-export default ProgressRing;
+export default ProgressRingLarge;

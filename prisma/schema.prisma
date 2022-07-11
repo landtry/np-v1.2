@@ -131,6 +131,7 @@ model Sme {
 model Assessment {
     id               String      @id @default(cuid())
     entity_id        String
+    user_id          String
     name             String?
     standard         String?     @default("iso_27001")
     overall_progress Int?        @default(0)

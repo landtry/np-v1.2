@@ -36,25 +36,25 @@ export default function DashboardDetailsSidebar(props: SidebarProps) {
   return (
     <>
       <div>
-        <div className="h-16 lg:h-18"></div>
-
         {/* Static sidebar for desktop */}
-
+        <div className="h-3"></div>
+        <div className="h-12"></div>
+        <div className="h-16 lg:h-18"></div>
         <div
           className={classNames(
-            sidebarOpen ? "w-48" : "w-16",
-            " hidden relative md:flex md:flex-col md:inset-y-0 h-full"
+            sidebarOpen ? "w-46" : "w-16",
+            "hidden relative md:flex md:flex-col md:inset-y-0 h-full"
           )}>
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex max-w-full flex-col w-auto flex-grow border-r border-gray-200 pb-4 bg-white overflow-y-auto fixed h-full">
+          <div className="flex max-w-full flex-col w-auto flex-grow border-r border-gray-200 pb-4 bg-white overflow-y-auto fixed z-20 h-full">
             <div className="flex-grow flex flex-col ">
               <nav
                 className={classNames(
-                  sidebarOpen ? "w-48" : "w-16",
+                  sidebarOpen ? "w-46" : "w-16",
                   "flex-1 bg-white"
                 )}
                 aria-label="Sidebar">
-                <div className="flex items-center justify-between font-bold text-custom-slate-900 py-4 px-2 pl-3 text-xs border-b border-custom-slate-200">
+                <div className="flex items-center justify-between font-bold text-custom-slate-900 py-3 px-2 pl-3 text-xs border-b border-custom-slate-200">
                   <Link
                     href={`/assessment/${props.entity_id}+${props.assessment_id}`}>
                     <a>
@@ -84,7 +84,7 @@ export default function DashboardDetailsSidebar(props: SidebarProps) {
                       sidebarOpen ? "block" : "hidden",
                       "border-b border-b-custom-slate-200"
                     )}>
-                    <div className="text-custom-blue uppercase text-3xs font-bold tracking-wider leading-tight hover:bg-slate-100 px-5 py-1 pt-2">
+                    <div className="text-custom-blue uppercase text-3xs font-bold tracking-wider leading-tight hover:bg-slate-100 px-5 py-2 pt-3">
                       <Link
                         href={`/details/${props.assessment_id}/${section.section_number}`}>
                         <a>
@@ -99,7 +99,7 @@ export default function DashboardDetailsSidebar(props: SidebarProps) {
                       {section.sections.map((subSection, index) => {
                         return (
                           <div
-                            className="text-custom-slate-900 text-xs capitalize hover:bg-slate-100  px-5 py-1 last:pb-2"
+                            className="text-custom-slate-900 text-xs capitalize hover:bg-slate-100  px-5 py-2 last:pb-3"
                             key={index}>
                             <ActiveLink
                               activeClassName="font-bold"
@@ -116,8 +116,9 @@ export default function DashboardDetailsSidebar(props: SidebarProps) {
                     </div>
                   </div>
                 ))}
-
+                <div className="h-3"></div>
                 <div className="h-12"></div>
+                <div className="h-16 lg:h-18"></div>
               </nav>
             </div>
           </div>

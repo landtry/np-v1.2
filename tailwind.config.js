@@ -109,9 +109,11 @@ module.exports = {
       24: "6rem",
       28: "7rem",
       32: "8rem",
+      34: "8.25rem",
       36: "9rem",
       40: "10rem",
       44: "11rem",
+      46: "11.5rem",
       48: "12rem",
       50: "12.5rem",
       52: "13rem",
@@ -122,6 +124,7 @@ module.exports = {
       72: "18rem",
       80: "20rem",
       96: "24rem",
+      100: "28rem",
     },
     animation: {
       none: "none",
@@ -409,6 +412,7 @@ module.exports = {
     fontSize: {
       "3xs": ["0.55rem", { lineHeight: "1rem" }],
       "2xs": ["0.6rem", { lineHeight: "1rem" }],
+      "1xs": ["0.7rem", { lineHeight: "1rem" }],
       xs: ["0.75rem", { lineHeight: "1rem" }],
       sm: ["0.875rem", { lineHeight: "1.25rem" }],
       base: ["1rem", { lineHeight: "1.5rem" }],

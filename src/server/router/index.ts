@@ -2,14 +2,14 @@
 import { createRouter } from "./context";
 import superjson from "superjson";
 
-import { exampleRouter } from "./example";
+import { userRouter } from "./user";
 import { authRouter } from "./auth";
 import { entityRouter } from "./entity";
 import { assessmentRouter } from "./assessment";
 
 export const appRouter = createRouter()
   .transformer(superjson)
-  .merge("example.", exampleRouter)
+  .merge("user.", userRouter)
   .merge("entity.", entityRouter)
   .merge("auth.", authRouter)
   .merge("assessment.", assessmentRouter);

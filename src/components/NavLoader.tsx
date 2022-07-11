@@ -1,6 +1,6 @@
 export default function NavLoader() {
   return (
-    <div className="bg-custom-slate-100 fixed top-0 w-screen border-b border-b-custom-slate-300">
+    <div className="bg-custom-slate-100 fixed z-50 top-0 w-screen border-b border-b-custom-slate-300">
       <div className="max-w-screen mx-auto px-4 sm:px-6 lg:px-6">
         <div className="flex justify-between items-center h-16 lg:h-18 animate-pulse">
           <div className="flex justify-center items-center">

@@ -1,4 +1,5 @@
 import React from "react";
+import { getDate } from "../helpers/normalize";
 import ProgressRing from "./ProgressRing";
 
 interface CardProps {
@@ -6,6 +7,7 @@ interface CardProps {
   title: string;
   progress: number | null | undefined;
   score: number | null | undefined;
+  updated: string | undefined;
 }
 
 function DashboardDetailsCard(props: CardProps) {
@@ -40,7 +42,7 @@ function DashboardDetailsCard(props: CardProps) {
           .join(".")
           .toUpperCase()} ${props.title}`}</span>
         <span className="text-custom-gray-400 text-xs font-medium">
-          Updated 00/00/0000
+          Updated {props.updated ? getDate(props.updated).date : "00/00/0000"}
         </span>
       </div>
       <div className="flex flex-col justify-between items-end h-full bg-custom-blue-800 text-custom-slate-200 py-4 px-5">
