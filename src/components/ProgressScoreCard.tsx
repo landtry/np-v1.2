@@ -30,12 +30,12 @@ function ProgressScoreCard({ progress, score }: CardProps) {
 
   return (
     <>
-      <div className="min-h-max block relative">
+      <div className="relative block min-h-max">
         <div className="w-68"></div>
-        <div className="bg-custom-blue-800 rounded-2xl p-5 fixed top-40">
-          <div className="top flex justify-center items-start">
+        <div className="fixed top-40 rounded-2xl bg-custom-blue-800 p-5 shadow-customlg">
+          <div className="top flex items-start justify-center">
             <div className="flex flex-col items-center justify-center text-custom-slate-100">
-              <span className="font-bold text-1xs tracking-wider uppercase">
+              <span className="mb-1 text-1xs font-bold uppercase tracking-wider">
                 Progress
               </span>
               <ProgressRingLarge
@@ -49,10 +49,10 @@ function ProgressScoreCard({ progress, score }: CardProps) {
             </div>
             <div className="w-5"></div>
             <div className="flex flex-col items-center justify-center text-custom-slate-100">
-              <span className="font-bold text-1xs tracking-wider uppercase">
+              <span className="mb-1 text-1xs font-bold uppercase tracking-wider">
                 Score
               </span>
-              <div className="h-0.5"></div>
+              <div className="h-1"></div>
               <ProgressRingLarge
                 width={"100px"}
                 progress={progress}

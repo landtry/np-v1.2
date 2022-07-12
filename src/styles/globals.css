@@ -5,7 +5,57 @@
 @layer base {
   html {
     @apply bg-custom-slate-100;
+    @apply text-custom-slate-900;
     font-size: 18px;
     letter-spacing: -0.01rem;
+  }
+  body {
+    overflow: overlay;
+  }
+
+  /* -------- scrollbars body -------- */
+  body::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  body::-webkit-scrollbar-track {
+    @apply hidden;
+    margin-right: 14px;
+    outline: 1px solid;
+    @apply outline-custom-slate-300;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    @apply bg-slate-400;
+    border-radius: 100vh;
+    border: 3px solid;
+    @apply border-custom-slate-100;
+  }
+
+  /* -------- scrollbars inside body -------- */
+  .overlay {
+    overflow: overlay;
+  }
+  body *::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-300;
+  }
+  body *::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  body *::-webkit-scrollbar-track {
+    @apply hidden;
+    margin-right: 14px;
+    outline: 1px solid;
+    @apply outline-white;
+  }
+
+  body *::-webkit-scrollbar-thumb {
+    @apply bg-slate-300;
+    border-radius: 100vh;
+  }
+
+  body *::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-300;
   }
 }

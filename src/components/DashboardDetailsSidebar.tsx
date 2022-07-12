@@ -35,90 +35,83 @@ export default function DashboardDetailsSidebar(props: SidebarProps) {
 
   return (
     <>
-      <div>
+      <div className=" min-h-screen">
         {/* Static sidebar for desktop */}
-        <div className="h-3"></div>
-        <div className="h-12"></div>
-        <div className="h-16 lg:h-18"></div>
         <div
           className={classNames(
             sidebarOpen ? "w-46" : "w-16",
-            "hidden relative md:flex md:flex-col md:inset-y-0 h-full"
+            "relative hidden md:inset-y-0 md:flex md:flex-col"
           )}>
-          {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex max-w-full flex-col w-auto flex-grow border-r border-gray-200 pb-4 bg-white overflow-y-auto fixed z-20 h-full">
-            <div className="flex-grow flex flex-col ">
+          <div className="  fixed z-20 flex h-full flex-grow flex-col border-r border-gray-200 bg-white pt-34">
+            <div className=" flex flex-grow  flex-col overflow-y-auto">
+              <div
+                className={
+                  "flex items-center justify-center gap-2 border-b border-custom-slate-200 py-3 px-2 text-xs font-bold text-custom-slate-900"
+                }>
+                <Link
+                  href={`/assessment/${props.entity_id}+${props.assessment_id}`}>
+                  <a className=" mr-1 hover:opacity-90">
+                    <HomeIcon />
+                  </a>
+                </Link>
+
+                <span className={classNames(sidebarOpen ? "block" : "hidden")}>
+                  Assessment Home
+                </span>
+
+                <button
+                  className={classNames(
+                    sidebarOpen ? "rotate-0" : "rotate-180",
+                    " inline-flex items-center rounded-lg border border-transparent p-1 text-white transition-transform duration-300 hover:bg-slate-200  hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  )}
+                  onClick={() => setSidebarOpen(!sidebarOpen)}>
+                  <CollapseArrowIcon />
+                </button>
+              </div>
               <nav
                 className={classNames(
                   sidebarOpen ? "w-46" : "w-16",
-                  "flex-1 bg-white"
+                  "overlay flex-1 bg-white"
                 )}
                 aria-label="Sidebar">
-                <div className="flex items-center justify-between font-bold text-custom-slate-900 py-3 px-2 pl-3 text-xs border-b border-custom-slate-200">
-                  <Link
-                    href={`/assessment/${props.entity_id}+${props.assessment_id}`}>
-                    <a>
-                      <HomeIcon />
-                    </a>
-                  </Link>
-
-                  <span
-                    className={classNames(sidebarOpen ? "block" : "hidden")}>
-                    Assessment Home
-                  </span>
-
-                  <button
-                    className={classNames(
-                      sidebarOpen ? "rotate-0" : "rotate-180",
-                      " transition-transform duration-0200 inline-flex items-center p-1 border border-transparent rounded hover:shadow-sm text-white  hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    )}
-                    onClick={() => setSidebarOpen(!sidebarOpen)}>
-                    <CollapseArrowIcon />
-                  </button>
-                </div>
-
                 {ISO_27001.sections.map((section, index) => (
                   <div
                     key={index}
                     className={classNames(
                       sidebarOpen ? "block" : "hidden",
-                      "border-b border-b-custom-slate-200"
+                      " border-b border-b-custom-slate-200"
                     )}>
-                    <div className="text-custom-blue uppercase text-3xs font-bold tracking-wider leading-tight hover:bg-slate-100 px-5 py-2 pt-3">
-                      <Link
-                        href={`/details/${props.assessment_id}/${section.section_number}`}>
+                    <Link
+                      href={`/questionnaire/${props.entity_id}+${props.assessment_id}+${section.section_number}-${section.section_number}_1`}>
+                      <div className=" cursor-pointer px-5 py-2 pt-3 text-3xs font-bold uppercase leading-tight tracking-wider text-custom-blue hover:bg-slate-100">
                         <a>
                           {`${section.section_number.split("_").join(".")} ${
                             section.title
                           }`}
                         </a>
-                      </Link>
-                    </div>
+                      </div>
+                    </Link>
 
                     <div className="">
                       {section.sections.map((subSection, index) => {
                         return (
-                          <div
-                            className="text-custom-slate-900 text-xs capitalize hover:bg-slate-100  px-5 py-2 last:pb-3"
-                            key={index}>
-                            <ActiveLink
-                              activeClassName="font-bold"
-                              href={`/details/${props.assessment_id}/${subSection.section_number}`}>
+                          <ActiveLink
+                            key={index}
+                            activeClassName="font-bold"
+                            href={`/questionnaire/${props.entity_id}+${props.assessment_id}+${section.section_number}-${subSection.section_number}`}>
+                            <div className="  cursor-pointer px-5 py-2 pr-4 text-xs capitalize text-custom-slate-900 last:pb-3 hover:bg-slate-100">
                               <a>
                                 {`${subSection.section_number
                                   .split("_")
                                   .join(".")} ${subSection.title}`}
                               </a>
-                            </ActiveLink>
-                          </div>
+                            </div>
+                          </ActiveLink>
                         );
                       })}
                     </div>
                   </div>
                 ))}
-                <div className="h-3"></div>
-                <div className="h-12"></div>
-                <div className="h-16 lg:h-18"></div>
               </nav>
             </div>
           </div>

@@ -35,19 +35,19 @@ function DashboardDetailsCard(props: CardProps) {
     return "#FF0000";
   };
   return (
-    <li className="col-span-1 flex justify-between items-center bg-white rounded-2xl overflow-hidden shadow-custom  h-full border border-custom-slate-300">
-      <div className="flex flex-col justify-between items-start h-full py-4 px-5">
+    <li className="tandistion-shadow col-span-1 flex h-full items-center justify-between overflow-hidden rounded-2xl  border border-custom-slate-300 bg-white shadow-custom duration-300 hover:shadow-customlg">
+      <div className="flex h-full flex-col items-start justify-between py-4 px-5">
         <span className="text-sm font-bold capitalize">{`${props.section_number
           .split("_")
           .join(".")
           .toUpperCase()} ${props.title}`}</span>
-        <span className="text-custom-gray-400 text-xs font-medium">
+        <span className="text-xs font-medium text-custom-gray-400">
           Updated {props.updated ? getDate(props.updated).date : "00/00/0000"}
         </span>
       </div>
-      <div className="flex flex-col justify-between items-end h-full bg-custom-blue-800 text-custom-slate-200 py-4 px-5">
+      <div className="flex h-full flex-col items-end justify-between bg-custom-blue-800 py-4 px-5 text-custom-slate-200">
         <div className="flex items-center ">
-          <span className="uppercase text-3xs font-bold tracking-wider mr-2">
+          <span className="mr-2 text-3xs font-bold uppercase tracking-wider">
             PROGRESS
           </span>
           <ProgressRing
@@ -62,7 +62,7 @@ function DashboardDetailsCard(props: CardProps) {
         <div className="h-3"></div>
 
         <div className="flex items-center">
-          <span className="uppercase text-3xs font-bold tracking-wider mr-2">
+          <span className="mr-2 text-3xs font-bold uppercase tracking-wider">
             SCORE
           </span>
           <ProgressRing

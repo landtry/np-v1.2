@@ -214,12 +214,12 @@
           "sub_sections": [
             {
               "section_number": "a_9_1_1",
-              "title": "a_ccess control policy",
+              "title": "access control policy",
               "question": "Have you established an access control policy that is documented and reviewed based on business and information security requirements?"
             },
             {
               "section_number": "a_9_1_2",
-              "title": "a_ccess to networks and network services",
+              "title": "access to networks and network services",
               "question": "Do you only provide users with access to the network and network services that they have been specifically authorized to use?"
             }
           ]
@@ -297,7 +297,7 @@
             },
             {
               "section_number": "a_9_4_5",
-              "title": "a_ccess control to program source code",
+              "title": "access control to program source code",
               "question": "Do you restrict access to program source code?"
             }
           ]

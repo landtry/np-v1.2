@@ -164,16 +164,16 @@ export default function DashboardAssessmentSidebar(props: SidebarProps) {
                     <ActiveLink
                       key={item.name}
                       href={item.href}
-                      activeClassName="bg-custom-slate-200">
+                      activeClassName="bg-custom-slate-200 hover:border-white ">
                       <a
                         className={classNames(
                           item.disabled
                             ? " text-slate-300 pointer-events-none"
-                            : "text-custom-slate-900 hover:bg-custom-slate-200",
-                          "group flex items-center px-4 py-3 text-base font-bold rounded-full"
+                            : "text-custom-slate-900",
+                          "group flex items-center px-4 py-3 text-base font-bold rounded-full border border-white  hover:border-custom-slate-300"
                         )}>
                         <item.icon />
-                        <span className="flex-1">{item.name}</span>
+                        <div className="flex-1">{item.name}</div>
                       </a>
                     </ActiveLink>
                   </div>

@@ -19,7 +19,7 @@ function NavSecondary({
     <div className="bg-custom-slate-100 w-screen fixed top-0 z-30 border border-custom-slate-300 flex flex-col justify-between">
       <div className="h-18"></div>
       <div className="flex items-center py-2 px-3">
-        <div className="mr-5">
+        <div className="mr-3 p-2 hover:bg-custom-slate-200 rounded-xl group cursor-pointer">
           <SettingsIcon click={() => ""} />
         </div>
         <div className="font-bold flex flex-col mr-auto">

@@ -14,7 +14,7 @@ function DashboardHomeCard({ name }: Props) {
   };
 
   return (
-    <li className="col-span-1 flex flex-col text-center justify-between items-center bg-white rounded-2xl shadow-custom  h-68 border border-custom-slate-300 py-4 px-5">
+    <li className="col-span-1 flex flex-col text-center justify-between items-center bg-white rounded-2xl shadow-custom  h-68 border border-custom-slate-300 py-4 px-5 hover:shadow-customlg transition-shadow duration-300">
       <div className="flex justify-between items-center relative w-full">
         <div className="font-bold text-sm">{overall_progress + "%"}</div>
         <div className="w-full ml-3 h-1.5 bg-custom-slate-300 rounded-full overflow-hidden relative">

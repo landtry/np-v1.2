@@ -7,7 +7,7 @@ interface SettingsProps {
 function SettingsIcon({ click }: SettingsProps) {
   return (
     <svg
-      className="fill-custom-gray-400 w-5 h-5 hover:fill-slate-500 hover:rotate-45 transition-transform"
+      className="fill-custom-gray-400 w-5 h-5 group-hover:fill-slate-500 group-hover:rotate-45 transition-transform"
       onClick={click}
       id="noun-gear-2020765"
       xmlns="http://www.w3.org/2000/svg"

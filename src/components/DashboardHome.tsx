@@ -10,44 +10,15 @@ function DashboardHome() {
 
   const entities = trpc.useQuery(["entity.entities"]);
 
-  console.log(entities);
-
   const loaderCards = ["1", "2", "3", "4", "5", "6", "7", "8"];
-
-  const entitiesFake = [
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-    {
-      name: "Boldist",
-    },
-  ];
 
   if (!session.data || entities.status === "loading") {
     return (
       <>
         <div className="h-18"></div>
         <div className="h-8"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-          <div className="max-w-4.5xl  mx-auto h-fit flex flex-col">
+        <div className="mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto  flex h-fit max-w-4.5xl flex-col">
             <div className="h-16"></div>
             <ul
               role="list"
@@ -65,7 +36,7 @@ function DashboardHome() {
 
   if (entities?.data?.length === 0) {
     return (
-      <div className="w-full h-screen flex justify-center items-center">
+      <div className="flex h-screen w-full items-center justify-center">
         <DashboardHomeEmpty />
       </div>
     );
@@ -75,10 +46,10 @@ function DashboardHome() {
     <>
       <div className="h-18"></div>
       <div className="h-8"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div className="max-w-4.5xl  mx-auto h-fit flex flex-col">
+      <div className="mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto  flex h-fit max-w-4.5xl flex-col">
           <Link href="/addEntity">
-            <button className="bg-custom-blue text-white hover:bg-custom-blue-400 px-5 py-3 rounded-full text-sm font-bold w-fit ml-auto">
+            <button className="ml-auto w-fit rounded-full bg-custom-blue px-5 py-3 text-sm font-bold text-white hover:bg-custom-blue-400 focus:outline-none focus:ring-2 focus:ring-custom-blue focus:ring-offset-2">
               Add Entity
             </button>
           </Link>

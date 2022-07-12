@@ -52,18 +52,18 @@ export default function Example() {
                     <ActiveLink
                       key={item.name}
                       href={item.href}
-                      activeClassName="bg-custom-slate-200 hover:text-custom-slate-900">
-                      <a className="px-5 py-3 rounded-full text-base font-bold text-custom-slate-900 hover:bg-custom-slate-200">
+                      activeClassName="bg-custom-slate-200">
+                      <a className="px-5 py-3 rounded-full text-base font-bold text-custom-slate-900 border border-white hover:border-custom-slate-300 ">
                         {item.name}
                       </a>
                     </ActiveLink>
                   ))}
                 </div>
                 <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
-                  {/* Profile dropdown */}
+                  {/* Entities dropdown */}
                   <Menu as="div" className="m-5 relative ">
                     <div>
-                      <Menu.Button className="bg-white flex items-center text-sm rounded-full h-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-custom-blue">
+                      <Menu.Button className="py-6 px-2 bg-white flex items-center text-sm rounded-full h-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-custom-blue  border border-white hover:border-custom-slate-300 ">
                         <span className="sr-only">Open user menu</span>
                         <span className=" ml-3 text-base font-bold">
                           Entities
@@ -79,7 +79,7 @@ export default function Example() {
                       leave="transition ease-in duration-75"
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-90">
-                      <Menu.Items className="origin-top-right absolute -left-12 mt-2 w-48 top-12 rounded-br rounded-bl shadow-custom py-1 bg-custom-blue ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="origin-top-right absolute -left-10 mt-3 w-48 top-13 rounded-br rounded-bl shadow-custom py-1 bg-custom-blue ring-1 ring-black ring-opacity-5 focus:outline-none ">
                         <MenuArrowIcon />
                         {userNavigation.map((item) => (
                           <Menu.Item key={item.name}>
@@ -96,11 +96,11 @@ export default function Example() {
                     </Transition>
                   </Menu>
                 </div>
-                <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
+                <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center ">
                   {/* Profile dropdown */}
                   <Menu as="div" className="ml-3 relative">
                     <div>
-                      <Menu.Button className="bg-white flex items-center text-sm rounded-full h-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-custom-blue">
+                      <Menu.Button className="py-6 px-2 bg-white flex items-center text-sm rounded-full h-10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-custom-blue  border border-white hover:border-custom-slate-300 ">
                         <span className="sr-only">Open user menu</span>
                         <Avatar image={data?.user?.image ?? ""} />
                         <span className=" ml-3 text-base font-bold capitalize">
@@ -117,7 +117,7 @@ export default function Example() {
                       leave="transition ease-in duration-75"
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95">
-                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 top-12 rounded-br rounded-bl shadow-custom py-1 bg-custom-blue ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="origin-top-right absolute -right-3 mt-3 w-48 top-13 rounded-br rounded-bl shadow-custom py-1 bg-custom-blue ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <MenuArrowIcon />
                         {userNavigation.map((item) => (
                           <Menu.Item key={item.name}>

@@ -13,7 +13,7 @@ interface CardProps {
 
 function DashboardAssessmentCard(props: CardProps) {
   return (
-    <li className="col-span-1 flex flex-col text-center justify-between items-center bg-white rounded-2xl shadow-custom  h-68 border border-custom-slate-300 py-4 px-5">
+    <li className="col-span-1 flex flex-col text-center justify-between items-center bg-white rounded-2xl shadow-custom  h-68 border border-custom-slate-300 py-4 px-5 hover:shadow-customlg tandistion-shadow duration-300">
       <div className="flex justify-between items-center relative w-full gap-3">
         <div className="flex items-center">
           <span className="uppercase text-3xs font-bold text-gray-500 tracking-wider">
@@ -52,7 +52,9 @@ function DashboardAssessmentCard(props: CardProps) {
         <span className="text-custom-gray-400 text-xs font-medium">
           {`Updated ${getDate(props.last_updated).date}`}
         </span>
-        <SettingsIcon click={() => {}} />
+        <div className="p-2 hover:bg-custom-slate-200 rounded-xl group">
+          <SettingsIcon click={() => {}} />
+        </div>
       </div>
     </li>
   );

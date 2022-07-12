@@ -12,7 +12,7 @@ interface DashboardProps {
   assessment_id: string;
 }
 
-function DashboardDetails({ assessment_id }: DashboardProps) {
+function DashboardDetails({ assessment_id, entity_id }: DashboardProps) {
   const { status, data } = trpc.useQuery(["auth.getSession"]);
   const [open, setOpen] = useState(false);
 
@@ -45,16 +45,18 @@ function DashboardDetails({ assessment_id }: DashboardProps) {
 
   return (
     <>
-      <div className="w-full mx-auto sm:mx-0 px-4 sm:px-6 lg:px-8 h-full">
+      <div className="mx-auto h-full w-full px-4 sm:mx-0 sm:px-6 lg:px-8">
         <div className="h-14"></div>
         <div className="h-18"></div>
         <div className="h-8"></div>
-        <div className="mx-auto h-fit flex flex-col">
+        <div className="mx-auto flex h-fit flex-col">
           <ul
             role="list"
             className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
             {ISO_27001.sections.map((section, index) => (
-              <Link key={index} href={"#"}>
+              <Link
+                key={index}
+                href={`/questionnaire/${entity_id}+${assessment_id}+${section.section_number}-${section.section_number}_1`}>
                 <a>
                   <DashboardDetailsCard
                     key={index}
