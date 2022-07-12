@@ -62,7 +62,7 @@ export default function DashboardDetailsSidebar(props: SidebarProps) {
                 <button
                   className={classNames(
                     sidebarOpen ? "rotate-0" : "rotate-180",
-                    " inline-flex items-center rounded-lg border border-transparent p-1 text-white transition-transform duration-300 hover:bg-slate-200  hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    " inline-flex items-center rounded border border-transparent p-1 text-white transition-transform duration-300 hover:bg-slate-200  hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   )}
                   onClick={() => setSidebarOpen(!sidebarOpen)}>
                   <CollapseArrowIcon />

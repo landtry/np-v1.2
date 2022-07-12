@@ -22,7 +22,7 @@ export const entityRouter = createRouter()
           ...input,
           user: {
             connect: {
-              id: ctx.session?.userId,
+              id: ctx.session?.userId?.toString() ?? "",
             },
           },
         },
@@ -35,7 +35,7 @@ export const entityRouter = createRouter()
     resolve({ ctx }) {
       return ctx.prisma.entity.findMany({
         where: {
-          user_id: ctx.session?.userId,
+          user_id: ctx.session?.userId ?? "",
         },
       });
     },
@@ -48,30 +48,6 @@ export const entityRouter = createRouter()
           id: input.entity_id,
         },
       });
-    },
-  })
-  .mutation("update-entity", {
-    input: createEntitySchema,
-    async resolve({ ctx, input }) {
-      if (!ctx.session?.userId) {
-        new trpc.TRPCError({
-          code: "FORBIDDEN",
-          message: "Cannot update an entity while loggout out",
-        });
-      }
-
-      const entity = await ctx.prisma.entity.update({
-        data: {
-          ...input,
-          user: {
-            connect: {
-              id: ctx.session?.userId,
-            },
-          },
-        },
-      });
-
-      return entity;
     },
   })
   .query("delete-single-entity", {

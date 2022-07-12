@@ -27,6 +27,10 @@ const QuestionnairePage: NextPage = ({
     { user_id: entity.data?.user_id ?? "" },
   ]);
 
+  if (user.status === "loading" || assessment.status === "loading") {
+    return <p>...loading</p>;
+  }
+
   return (
     <>
       <NavSecondary
@@ -45,13 +49,14 @@ const QuestionnairePage: NextPage = ({
         />
         <DashboardQuestionnaire
           entity_id={entity_id}
-          assessment_id={assessment_id}
           section_number={section_number}
           sub_section_number={sub_section_number}
+          iso_27001={assessment?.data?.iso_27001[0] ?? { name: "" }}
         />
         <ProgressScoreCard
           progress={assessment.data?.overall_score ?? 0}
           score={assessment.data?.overall_score ?? 0}
+          section_number={section_number}
         />
       </div>
     </>

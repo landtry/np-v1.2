@@ -10,24 +10,19 @@ import ISO_27001 from "../templates/iso_27001.json";
 
 interface DashboardProps {
   entity_id: string;
-  assessment_id: string;
   section_number: string;
   sub_section_number: string;
+  iso_27001: object;
 }
 
 function DashboardQuestionnaire({
-  assessment_id,
   entity_id,
   section_number,
   sub_section_number,
+  iso_27001,
 }: DashboardProps) {
   const { status, data } = trpc.useQuery(["auth.getSession"]);
   const [open, setOpen] = useState(false);
-
-  const assessment = trpc.useQuery([
-    "assessment.single-assessment",
-    { assessment_id: assessment_id },
-  ]);
 
   const currentSection = ISO_27001.sections.filter(
     (section) => section.section_number === section_number
@@ -51,6 +46,7 @@ function DashboardQuestionnaire({
                 key={index}
                 section={section}
                 sub_section_number={sub_section_number}
+                iso_27001={iso_27001}
               />
             ))}
           </ul>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import DashboardHomeCard from "./DashboardHomeCard";
 import { trpc } from "../utils/trpc";
 import DashboardHomeCardLoader from "./DashboardHomeCardLoader";
@@ -28,6 +28,8 @@ function DashboardAssessment({ entity_id }: DashboardProps) {
   ]);
 
   const [open, setOpen] = useState(false);
+
+  const onClose = useCallback(() => setOpen(false), []);
 
   if (!data || !assessments) {
     return (
@@ -94,7 +96,7 @@ function DashboardAssessment({ entity_id }: DashboardProps) {
       </div>
       <DashboardAssessmentModal
         show={open}
-        onClose={() => setOpen(false)}
+        onClose={onClose}
         entity_id={entity_id}
       />
       <div className="h-8"></div>

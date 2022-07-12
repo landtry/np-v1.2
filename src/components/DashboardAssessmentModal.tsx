@@ -42,7 +42,7 @@ export default function Example({ show, onClose, entity_id }: ModalProps) {
     if (!open) {
       onClose();
     }
-  }, [open]);
+  }, [open, onClose]);
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -58,8 +58,8 @@ export default function Example({ show, onClose, entity_id }: ModalProps) {
           <div className="fixed inset-0 bg-slate-900 bg-opacity-60 transition-opacity" />
         </Transition.Child>
 
-        <div className="fixed z-10 inset-0 overflow-y-auto">
-          <div className="flex items-center sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+        <div className="fixed inset-0 z-10 overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center p-4 text-center sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -68,13 +68,13 @@ export default function Example({ show, onClose, entity_id }: ModalProps) {
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-              <Dialog.Panel className="relative bg-white rounded-2xl px-8 pt-7 pb-4 w-80 max-w-full text-left overflow-hidden shadow-custom transform transition-all sm:my-8 sm:max-w-xl sm:w-full sm:px-18 sm:py-10">
+              <Dialog.Panel className="relative w-80 max-w-full transform overflow-hidden rounded-2xl bg-white px-8 pt-7 pb-4 text-left shadow-custom transition-all sm:my-8 sm:w-full sm:max-w-xl sm:px-18 sm:py-10">
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div>
                     <div className="text-center">
                       <Dialog.Title
                         as="h3"
-                        className="text-xl leading-6 font-bold text-slate-900">
+                        className="text-xl font-bold leading-6 text-slate-900">
                         Add New Assessment
                       </Dialog.Title>
                     </div>
@@ -90,7 +90,7 @@ export default function Example({ show, onClose, entity_id }: ModalProps) {
                           type="text"
                           {...register("name")}
                           id="name"
-                          className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                           placeholder=""
                         />
                       </div>
@@ -104,7 +104,7 @@ export default function Example({ show, onClose, entity_id }: ModalProps) {
                         <select
                           id="standard"
                           {...register("standard")}
-                          className=" mt-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                          className=" mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                           defaultValue="iso_27001"
                           value={"iso_27001"}>
                           <option>iso_27001</option>
@@ -121,15 +121,15 @@ export default function Example({ show, onClose, entity_id }: ModalProps) {
                     </div>
                   </div>
 
-                  <div className="mt-5 sm:mt-6 flex-col flex sm:flex-row w-full justify-center items-center sm:gap-8">
+                  <div className="mt-5 flex w-full flex-col items-center justify-center sm:mt-6 sm:flex-row sm:gap-8">
                     <button
                       type="submit"
-                      className="inline-flex justify-center w-full rounded-full border border-transparent shadow-sm px-4 py-2 bg-custom-blue text-base font-medium text-white hover:bg-custom-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue">
+                      className="inline-flex w-full justify-center rounded-full border border-transparent bg-custom-blue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-custom-blue-400 focus:outline-none focus:ring-2 focus:ring-custom-blue focus:ring-offset-2">
                       Create Assessment
                     </button>
                     <button
                       type="button"
-                      className="inline-flex justify-center w-fit mt-4 rounded-full border border-transparent shadow-sm px-4 py-2  text-base font-medium sm:mt-0 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                      className="mt-4 inline-flex w-fit justify-center rounded-full border border-transparent px-4 py-2 text-base  font-medium text-gray-400 shadow-sm hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 sm:mt-0"
                       onClick={() => setOpen(false)}>
                       Cancel
                     </button>

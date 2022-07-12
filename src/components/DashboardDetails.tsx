@@ -71,13 +71,8 @@ function DashboardDetails({ assessment_id, entity_id }: DashboardProps) {
             ))}
           </ul>
         </div>
+        <div className="h-8"></div>
       </div>
-      {/* <DashboardAssessmentModal
-        show={open}
-        onClose={() => setOpen(false)}
-        entity_id={entity_id}
-      /> */}
-      <div className="h-8"></div>
     </>
   );
 }

@@ -8,11 +8,13 @@ interface SectionProps {
     sub_sections: Array<object>;
   };
   sub_section_number: string;
+  iso_27001: object;
 }
 
 function DashboardQuestionnaireSection({
   section,
   sub_section_number,
+  iso_27001,
 }: SectionProps) {
   useEffect(() => {
     if (sub_section_number) {
@@ -36,6 +38,7 @@ function DashboardQuestionnaireSection({
           <DashboardQuestionnaireSubControl
             key={index}
             subSection={subSection}
+            iso_27001={iso_27001}
           />
         );
       })}
